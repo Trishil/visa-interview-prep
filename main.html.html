@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trishil's F-1 Visa Prep (Complete)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300..700&display=swap" rel="stylesheet">
+<style>
+/* ===== DESIGN TOKENS ===== */
+:root, [data-theme="light"] {
+  --color-bg: #f7f6f2; --color-surface: #f9f8f5; --color-surface-2: #fbfbf9;
+  --color-surface-offset: #f3f0ec; --color-divider: #dcd9d5; --color-border: #d4d1ca;
+  --color-text: #28251d; --color-text-muted: #7a7974; --color-text-faint: #bab9b4;
+  --color-primary: #01696f; --color-primary-hover: #0c4e54; --color-primary-highlight: #cedcd8;
+  --color-success: #437a22; --color-success-highlight: #d4dfcc;
+  --color-warning: #964219; --color-error: #a12c7b; --color-gold: #d19900;
+  --color-surface-accent: color-mix(in oklch, #01696f 8%, #f9f8f5);
+  --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem; --radius-full: 9999px;
+  --transition-interactive: 180ms ease;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05); --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-6: 1.5rem; --space-8: 2rem; --space-12: 3rem;
+  --text-xs: 0.8rem; --text-sm: 0.95rem; --text-base: 1.05rem; --text-lg: 1.25rem; --text-xl: 1.75rem; --text-2xl: 2.5rem;
+  --font-display: 'Instrument Serif', serif; --font-body: 'Work Sans', sans-serif;
+}
+[data-theme="dark"] {
+  --color-bg: #171614; --color-surface: #1c1b19; --color-surface-2: #201f1d;
+  --color-surface-offset: #1d1c1a; --color-divider: #262523; --color-border: #393836;
+  --color-text: #cdccca; --color-text-muted: #797876; --color-text-faint: #5a5957;
+  --color-primary: #4f98a3; --color-primary-hover: #227f8b; --color-primary-highlight: #313b3b;
+  --color-success: #6daa45; --color-success-highlight: #3a4435;
+  --color-warning: #bb653b; --color-error: #d163a7; --color-gold: #e8af34;
+  --color-surface-accent: color-mix(in oklch, #4f98a3 8%, #1c1b19);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2); --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ===== BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background: var(--color-bg); line-height: 1.6; min-height: 100vh; display: flex; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== LAYOUT ===== */
+.sidebar { width: 260px; background: var(--color-surface); border-right: 1px solid var(--color-border); height: 100vh; position: sticky; top: 0; display: flex; flex-direction: column; z-index: 100; flex-shrink: 0; }
+.sidebar-logo { padding: var(--space-6); border-bottom: 1px solid var(--color-border); font-family: var(--font-display); font-size: var(--text-lg); display: flex; align-items: center; gap: var(--space-3); }
+.logo-icon { width: 36px; height: 36px; background: var(--color-primary); color: white; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; }
+.sidebar-nav { flex: 1; padding: var(--space-4) var(--space-3); overflow-y: auto; }
+.nav-label { font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; color: var(--color-text-faint); padding: var(--space-4) var(--space-3) var(--space-2); }
+.nav-item { width: 100%; display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-text-muted); text-align: left; transition: var(--transition-interactive); margin-bottom: 2px; }
+.nav-item:hover { background: var(--color-surface-offset); color: var(--color-text); }
+.nav-item.active { background: var(--color-primary-highlight); color: var(--color-primary); font-weight: 500; }
+.nav-badge { margin-left: auto; font-size: var(--text-xs); background: var(--color-primary-highlight); color: var(--color-primary); padding: 2px 8px; border-radius: var(--radius-full); font-weight: 600; }
+
+.main-content { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.hero { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-8); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; }
+.hero-title { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-1); }
+.countdown { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-4) var(--space-6); display: flex; gap: var(--space-6); align-items: center; box-shadow: var(--shadow-sm); }
+.cd-unit { text-align: center; }
+.cd-num { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--color-primary); line-height: 1; }
+.cd-label { font-size: var(--text-xs); color: var(--color-text-muted); text-transform: uppercase; }
+
+.page-body { padding: var(--space-8); max-width: 1000px; margin: 0 auto; width: 100%; }
+.section-block { display: none; }
+.section-block.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.section-title { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-2); }
+.section-desc { color: var(--color-text-muted); margin-bottom: var(--space-6); font-size: var(--text-sm); }
+
+/* ===== COMPONENTS ===== */
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-8); }
+.tile { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4); box-shadow: var(--shadow-sm); }
+.tile-num { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-primary); }
+.tile-label { font-size: var(--text-xs); color: var(--color-text-muted); text-transform: uppercase; margin-top: 4px; }
+.card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-6); margin-bottom: var(--space-4); }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--color-primary); color: white; font-weight: 600; border-radius: var(--radius-md); font-size: var(--text-sm); transition: 0.2s; }
+.btn:hover { background: var(--color-primary-hover); }
+.btn-outline { background: transparent; border: 1px solid var(--color-primary); color: var(--color-primary); }
+
+/* Documents */
+.doc-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4); margin-bottom: var(--space-3); display: flex; gap: var(--space-4); transition: var(--transition-interactive); }
+.doc-item.checked { background: var(--color-success-highlight); border-color: oklch(from var(--color-success) l c h / 0.3); }
+.doc-item input[type="checkbox"] { width: 22px; height: 22px; accent-color: var(--color-success); cursor: pointer; margin-top: 2px; }
+.doc-label { font-weight: 600; margin-bottom: 4px; display: flex; align-items: center; gap: var(--space-2); }
+.doc-item.checked .doc-label { text-decoration: line-through; opacity: 0.7; }
+.badge-req { font-size: 0.7rem; background: color-mix(in oklch, var(--color-error) 15%, var(--color-bg)); color: var(--color-error); padding: 2px 8px; border-radius: var(--radius-full); }
+.badge-sup { font-size: 0.7rem; background: var(--color-primary-highlight); color: var(--color-primary); padding: 2px 8px; border-radius: var(--radius-full); }
+
+/* Q&A Cards */
+.qa-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); margin-bottom: var(--space-6); overflow: hidden; }
+.qa-header { padding: var(--space-5); display: flex; gap: var(--space-4); cursor: pointer; background: var(--color-surface-2); border-bottom: 1px solid var(--color-border); align-items: center; }
+.qa-header:hover { background: var(--color-surface-offset); }
+.qa-num { width: 32px; height: 32px; background: var(--color-primary); color: white; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; font-size: var(--text-xs); font-weight: bold; flex-shrink: 0; }
+.qa-title { font-family: var(--font-display); font-size: var(--text-lg); flex: 1; }
+.qa-body { padding: var(--space-6); display: none; flex-direction: column; gap: var(--space-6); }
+.qa-card.open .qa-body { display: flex; }
+.box-hook { background: color-mix(in oklch, var(--color-gold) 10%, var(--color-bg)); border: 1px solid color-mix(in oklch, var(--color-gold) 30%, transparent); padding: var(--space-4); border-radius: var(--radius-lg); font-style: italic; }
+.box-avoid { background: color-mix(in oklch, var(--color-error) 10%, var(--color-bg)); border: 1px solid color-mix(in oklch, var(--color-error) 30%, transparent); padding: var(--space-4); border-radius: var(--radius-lg); }
+.qa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.qa-label { font-size: var(--text-xs); font-weight: bold; text-transform: uppercase; margin-bottom: var(--space-2); color: var(--color-primary); }
+ul.tp-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+ul.tp-list li { display: flex; gap: 8px; font-size: var(--text-sm); color: var(--color-text-muted); }
+ul.tp-list li::before { content: '•'; color: var(--color-primary); font-weight: bold; }
+.answer-area { width: 100%; min-height: 120px; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4); font-family: var(--font-body); font-size: var(--text-sm); color: var(--color-text); resize: vertical; margin-top: var(--space-2); }
+.answer-area:focus { outline: 2px solid var(--color-primary); }
+.qa-card.answered .qa-num { background: var(--color-success); }
+.qa-card.answered .qa-header { border-left: 4px solid var(--color-success); }
+
+/* Timeline (Schedule) */
+.timeline { border-left: 2px solid var(--color-border); margin-left: 12px; padding-left: 24px; display: flex; flex-direction: column; gap: var(--space-6); }
+.timeline-item { position: relative; }
+.timeline-item::before { content: ''; position: absolute; left: -31px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--color-primary); border: 2px solid var(--color-bg); }
+.timeline-date { font-weight: bold; color: var(--color-primary); font-size: var(--text-sm); margin-bottom: 4px; }
+.timeline-content { background: var(--color-surface); border: 1px solid var(--color-border); padding: var(--space-4); border-radius: var(--radius-lg); }
+
+/* MOBILE */
+.mobile-toggle { display: none; position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: var(--color-primary); color: white; border-radius: 50%; z-index: 200; box-shadow: var(--shadow-md); }
+@media (max-width: 768px) {
+  .sidebar { position: fixed; left: -260px; transition: 0.3s; }
+  .sidebar.open { left: 0; box-shadow: var(--shadow-lg); }
+  .mobile-toggle { display: block; }
+  .hero { flex-direction: column; gap: var(--space-4); align-items: flex-start; padding: var(--space-4); }
+  .qa-grid { grid-template-columns: 1fr; }
+  .page-body { padding: var(--space-4); }
+}
+
+/* PRINT STYLES */
+@media print {
+  .sidebar, .hero, .mobile-toggle, .btn { display: none !important; }
+  .main-content { margin: 0; padding: 0; }
+  .section-block { display: block !important; page-break-inside: avoid; margin-bottom: 40px; }
+  .qa-card.open .qa-body, .qa-body { display: block !important; }
+  .qa-card { border: 1px solid #ccc; break-inside: avoid; }
+  body { background: white; color: black; }
+  textarea { border: none; font-style: italic; color: #333; }
+  * { box-shadow: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">V</div>
+    <div>Visa Prep <div style="font-size:0.7rem;font-family:var(--font-body);color:var(--color-text-muted);">US Embassy New Delhi</div></div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-label">Overview</div>
+    <button class="nav-item active" onclick="nav(event, 'dashboard')">Dashboard</button>
+
+    <div class="nav-label">Preparation</div>
+    <button class="nav-item" onclick="nav(event, 'documents')">Documents <span class="nav-badge" id="badge-docs">0/9</span></button>
+    <button class="nav-item" onclick="nav(event, 'core-qs')">Core Questions <span class="nav-badge" id="badge-qs">0/5</span></button>
+    <button class="nav-item" onclick="nav(event, 'tricky-qs')">Tricky Questions</button>
+    
+    <div class="nav-label">Deep Dive Banks</div>
+    <button class="nav-item" onclick="nav(event, 'why-us-qs')">Why US & Buffalo</button>
+    <button class="nav-item" onclick="nav(event, 'academic-qs')">Neuroscience & NEET</button>
+    
+    <div class="nav-label">Deep Dive Banks</div>
+    <button class="nav-item" onclick="nav(event, 'research-qs')">Patent & Research</button>
+    <button class="nav-item" onclick="nav(event, 'academic-qs')">Neuroscience & NEET</button>
+    <button class="nav-item" onclick="nav(event, 'finance-qs')">Finances & Home Ties</button>
+
+    <div class="nav-label">Strategy</div>
+    <button class="nav-item" onclick="nav(event, 'schedule')">Study Schedule</button>
+    <button class="nav-item" onclick="nav(event, 'tips')">Interview Tips</button>
+  </nav>
+</aside>
+
+<main class="main-content">
+  <!-- HERO -->
+  <header class="hero">
+    <div>
+      <div style="font-size:var(--text-xs);color:var(--color-primary);font-weight:bold;letter-spacing:1px;">F-1 STUDENT VISA · TRISHIL BALAR</div>
+      <h1 class="hero-title">Interview Hub</h1>
+      <div style="color:var(--color-text-muted);font-size:var(--text-sm);">SUNY Buffalo · Neuroscience · Fall 2026</div>
+    </div>
+    <div class="countdown">
+      <div class="cd-unit"><div class="cd-num" id="cd-days">--</div><div class="cd-label">Days</div></div>
+      <div style="font-size:24px;color:var(--color-border);">:</div>
+      <div class="cd-unit"><div class="cd-num" id="cd-hours">--</div><div class="cd-label">Hours</div></div>
+      <div style="font-size:24px;color:var(--color-border);">:</div>
+      <div class="cd-unit"><div class="cd-num" id="cd-mins">--</div><div class="cd-label">Mins</div></div>
+    </div>
+  </header>
+
+  <div class="page-body">
+
+    <!-- ================= DASHBOARD ================= -->
+    <section id="dashboard" class="section-block active">
+      <h2 class="section-title">Overview</h2>
+      <p class="section-desc">Track your progress for your May 13th interview.</p>
+
+      <div class="grid-4">
+        <div class="tile"><div class="tile-num" id="tile-docs">0/9</div><div class="tile-label">Docs Ready</div></div>
+        <div class="tile"><div class="tile-num" id="tile-qs">0/5</div><div class="tile-label">Answers Written</div></div>
+        <div class="tile"><div class="tile-num" style="color:var(--color-gold);">$80K</div><div class="tile-label">Scholarship</div></div>
+        <div class="tile"><div class="tile-num" style="color:var(--color-error);">4</div><div class="tile-label">Red Flags to Beat</div></div>
+      </div>
+
+      <div class="card" style="border-left: 4px solid var(--color-gold);">
+        <h3 style="font-size:var(--text-base);margin-bottom:8px;">Your Core Narrative</h3>
+        <p style="font-size:var(--text-sm);color:var(--color-text-muted);">You are not a standard student. You co-authored 2 patents at Lacgene Technologies. You're going to the US because Indian undergrad programs restrict lab access to PhDs. Buffalo's Honors College lets you build your ideas. You will return to Surat to lead Lacgene's new factory expansion.</p>
+      </div>
+
+      <div style="display:flex; gap:16px; margin-top:32px;">
+        <button class="btn" onclick="nav(event, 'documents')">Go to Documents</button>
+        <button class="btn btn-outline" onclick="window.print()">Export / Print Plan</button>
+      </div>
+    </section>
+
+    <!-- ================= DOCUMENTS ================= -->
+    <section id="documents" class="section-block">
+      <h2 class="section-title">Document Checklist</h2>
+      <p class="section-desc">Check off documents as you gather them. Data saves automatically.</p>
+
+      <h3 style="font-size:var(--text-sm);color:var(--color-error);text-transform:uppercase;margin:24px 0 12px;">Required (Must Bring)</h3>
+      <label class="doc-item" id="doc-wrap-passport"><input type="checkbox" id="chk-passport" onchange="saveDocs()"><div><div class="doc-label">Valid Passport <span class="badge-req">Required</span></div><div style="font-size:var(--text-xs);color:var(--color-text-muted);">Valid for at least 6 months. Bring original + photocopy.</div></div></label>
+      <label class="doc-item" id="doc-wrap-ds160"><input type="checkbox" id="chk-ds160" onchange="saveDocs()"><div><div class="doc-label">DS-160 Confirmation <span class="badge-req">Required</span></div><div style="font-size:var(--text-xs);color:var(--color-text-muted);">Barcode page printed. Confirmation number: AA00FFTUV7.</div></div></label>
+      <label class="doc-item" id="doc-wrap-appt"><input type="checkbox" id="chk-appt" onchange="saveDocs()"><div><div class="doc-label">Visa Appointment Confirmation <span class="badge-req">Required</span></div><div style="font-size:var(--text-xs);color:var(--color-text-muted);">13-May-2026 at US Embassy New Delhi.</div></div></label>
+      <label class="doc-item" id="doc-wrap-i20"><input type="checkbox" id="chk-i20" onchange="saveDocs()"><div><div class="doc-label">Form I-20 (Original) <span class="badge-req">Required</span></div><div style="font-size:var(--text-xs);color:var(--color-text-muted);">Signed by Faith Bennett. SEVIS ID: N0037622672.</div></div></label>
+      <label class="doc-item" id="doc-wrap-sevis"><input type="checkbox" id="chk-sevis" onchange="saveDocs()"><div><div class="doc-label">SEVIS I-901 Receipt <span class="badge-req">Required</span></div><div style="font-size:var(--text-xs);color:var(--color-text-muted);">Proof of $350 fee. Receipt: CCC2618371200.</div></div></label>
+      <label class="doc-item" id="doc-wrap-photo"><input type="checkbox" id="chk-photo" onchange="saveDocs()"><div><div class="doc-label">Visa Photographs <span class="badge-req">Required</span></div><div style="font-size:var(--text-xs);color:var(--color-text-muted);">2x2 inch, white background, recent (6 months).</div></div></label>
+
+      <h3 style="font-size:var(--text-sm);color:var(--color-primary);text-transform:uppercase;margin:32px 0 12px;">Supporting Documents</h3>
+      <label class="doc-item" id="doc-wrap-adm"><input type="checkbox" id="chk-adm" onchange="saveDocs()"><div><div class="doc-label">UB Admission & Scholarship Letter <span class="badge-sup">Supporting</span></div><div style="font-size:var(--text-xs);color:var(--color-text-muted);">Proof of $80,000 Flagship Scholarship.</div></div></label>
+      <label class="doc-item" id="doc-wrap-fin"><input type="checkbox" id="chk-fin" onchange="saveDocs()"><div><div class="doc-label">Financial Documents <span class="badge-sup">Supporting</span></div><div style="font-size:var(--text-xs);color:var(--color-text-muted);">Father's ₹85 Lakh HDFC Fixed Deposit statement.</div></div></label>
+      <label class="doc-item" id="doc-wrap-acad"><input type="checkbox" id="chk-acad" onchange="saveDocs()"><div><div class="doc-label">Academic Records <span class="badge-sup">Supporting</span></div><div style="font-size:var(--text-xs);color:var(--color-text-muted);">Class 10/12 marksheets, IELTS scorecard.</div></div></label>
+    </section>
+
+    <!-- ================= CORE QUESTIONS ================= -->
+    <section 1007
+     class="section-block">
+      <h2 class="section-title">Core Interview Questions</h2>
+      <p class="section-desc">Write out your personalized answers. They save instantly.</p>
+
+      <div class="qa-card" id="qa-1">
+        <div class="qa-header" onclick="toggleQA('qa-1')"><div class="qa-num">01</div><div class="qa-title">Why are you going to the United States?</div></div>
+        <div class="qa-body">
+          <div class="box-hook"><div class="qa-label" style="color:var(--color-gold);">Opening Hook (Say this first)</div>"My father's company has two patents I co-authored, but I couldn't build them myself. In India, undergraduate labs are restricted. At SUNY Buffalo, I get hands-on access to translational labs to build my hydrogel hypothesis."</div>
+          <div class="qa-grid">
+            <div><div class="qa-label">Talking Points</div><ul class="tp-list"><li>Co-authored patents but senior chemists built them.</li><li>Indian undergrad is theoretical; US allows physical execution.</li><li>SUNY Buffalo CTRC lab access.</li></ul></div>
+            <div class="box-avoid"><div class="qa-label" style="color:var(--color-error);">Do Not Say</div><ul class="tp-list" style="color:var(--color-error);"><li>"World-class faculty"</li><li>"Global exposure"</li></ul></div>
+          </div>
+          <div><div class="qa-label">Your Answer</div><textarea class="answer-area" id="ans-q1" placeholder="Write your personalized answer here..." oninput="saveAnswers()"></textarea></div>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-2">
+        <div class="qa-header" onclick="toggleQA('qa-2')"><div class="qa-num">02</div><div class="qa-title">Why can't you do this research in India?</div></div>
+        <div class="qa-body">
+          <div class="box-hook"><div class="qa-label" style="color:var(--color-gold);">Opening Hook</div>"In India, I can't touch a centrifuge or run a viability assay until I'm in a PhD program. That's a 6-year wait, and my father's factory expansion is happening now."</div>
+          <div class="qa-grid">
+            <div><div class="qa-label">Talking Points</div><ul class="tp-list"><li>Wet-lab execution is restricted to postgrads.</li><li>Your technique (scaffold viability testing) requires grad-level equipment.</li></ul></div>
+            <div class="box-avoid"><div class="qa-label" style="color:var(--color-error);">Do Not Say</div><ul class="tp-list" style="color:var(--color-error);"><li>"Indian education is inferior"</li><li>Vague complaints.</li></ul></div>
+          </div>
+          <div><div class="qa-label">Your Answer</div><textarea class="answer-area" id="ans-q2" placeholder="Write your personalized answer here..." oninput="saveAnswers()"></textarea></div>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-3">
+        <div class="qa-header" onclick="toggleQA('qa-3')"><div class="qa-num">03</div><div class="qa-title">Why did you choose SUNY Buffalo?</div></div>
+        <div class="qa-body">
+          <div class="box-hook"><div class="qa-label" style="color:var(--color-gold);">Opening Hook</div>"Two reasons: their Clinical Research Center lets undergrads run real experiments, and they gave me an $80,000 Flagship Scholarship."</div>
+          <div class="qa-grid">
+            <div><div class="qa-label">Talking Points</div><ul class="tp-list"><li>Name drop Dr. Weiss and Dr. Szigeti.</li><li>The $80K scholarship proves American validation of merit.</li></ul></div>
+            <div class="box-avoid"><div class="qa-label" style="color:var(--color-error);">Do Not Say</div><ul class="tp-list" style="color:var(--color-error);"><li>"High ranking"</li><li>"Cheap tuition"</li></ul></div>
+          </div>
+          <div><div class="qa-label">Your Answer</div><textarea class="answer-area" id="ans-q3" placeholder="Write your personalized answer here..." oninput="saveAnswers()"></textarea></div>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-4">
+        <div class="qa-header" onclick="toggleQA('qa-4')"><div class="qa-num">04</div><div class="qa-title">Who is sponsoring you?</div></div>
+        <div class="qa-body">
+          <div class="box-hook"><div class="qa-label" style="color:var(--color-gold);">Opening Hook</div>"My father is funding me. He has an HDFC Fixed Deposit of ₹85 Lakh, which covers my first year twice over. Plus, UB awarded me an $80,000 scholarship."</div>
+          <div class="qa-grid">
+            <div><div class="qa-label">Talking Points</div><ul class="tp-list"><li>Cost: $60,600/year. Scholarship $20K. Gap is $40,600.</li><li>₹85 Lakh FD (~$100K) covers gap easily.</li><li>Funded via Lacgene Tech revenue.</li></ul></div>
+            <div class="box-avoid"><div class="qa-label" style="color:var(--color-error);">Do Not Say</div><ul class="tp-list" style="color:var(--color-error);"><li>"My father is rich"</li><li>Confuse total cost with out-of-pocket.</li></ul></div>
+          </div>
+          <div><div class="qa-label">Your Answer</div><textarea class="answer-area" id="ans-q4" placeholder="Write your personalized answer here..." oninput="saveAnswers()"></textarea></div>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-5">
+        <div class="qa-header" onclick="toggleQA('qa-5')"><div class="qa-num">05</div><div class="qa-title">What are your plans after graduation?</div></div>
+        <div class="qa-body">
+          <div class="box-hook"><div class="qa-label" style="color:var(--color-gold);">Opening Hook</div>"I am returning to Surat. My father's company is building a new nicotine replacement factory based on the patent I co-authored. I am returning to be the Lead Researcher."</div>
+          <div class="qa-grid">
+            <div><div class="qa-label">Talking Points</div><ul class="tp-list"><li>Specific factory expansion tied to patent.</li><li>Concrete, verifiable proof of home ties.</li></ul></div>
+            <div class="box-avoid"><div class="qa-label" style="color:var(--color-error);">Do Not Say</div><ul class="tp-list" style="color:var(--color-error);"><li>"I might do a Masters in US"</li><li>"Work on OPT"</li></ul></div>
+          </div>
+          <div><div class="qa-label">Your Answer</div><textarea class="answer-area" id="ans-q5" placeholder="Write your personalized answer here..." oninput="saveAnswers()"></textarea></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TRICKY QUESTIONS ================= -->
+    <section id="tricky-qs" class="section-block">
+      <h2 class="section-title">Tricky / Curveball Questions</h2>
+      <p class="section-desc">Handle the pressure tests.</p>
+
+      <div class="qa-card" id="qa-6">
+        <div class="qa-header" onclick="toggleQA('qa-6')"><div class="qa-num">06</div><div class="qa-title">You're 17. How did you co-author patents?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Be brutally honest. Say: "I conceptualized the AI systems-thinking to connect the dots, but my dad's senior chemists did the wet-lab work. That's exactly why I need to go to the US—to learn how to build my own ideas."</p>
+          <textarea class="answer-area" id="ans-q6" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-7">
+        <div class="qa-header" onclick="toggleQA('qa-7')"><div class="qa-num">07</div><div class="qa-title">What if I reject your visa today?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Stay calm. Smile. Say: "I would ask for your feedback, fix it, and apply again. The lab skills I need to lead my father's factory expansion are only available at the undergrad level in the US. It's critical for my future."</p>
+          <textarea class="answer-area" id="ans-q7" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+    </section>
+
+        <!-- ================= RESEARCH & PATENTS ================= -->
+    <section id="research-qs" class="section-block">
+      <h2 class="section-title">Patent & Research Deep Dive</h2>
+      <p class="section-desc">Defend your authenticity. Do not pretend to be a senior chemist.</p>
+
+      <div class="qa-card" id="qa-8">
+        <div class="qa-header" onclick="toggleQA('qa-8')"><div class="qa-num">08</div><div class="qa-title">How is it scientifically possible that you co-authored two complex patents at 17?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Admit you didn't do the wet-lab chemistry. You used AI and systems-thinking to connect the conceptual dots (e.g., continuous low-dose delivery vs carcinogenic spikes), but Lacgene's senior chemists built the actual prototypes.</p>
+          <textarea class="answer-area" id="ans-q8" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-9">
+        <div class="qa-header" onclick="toggleQA('qa-9')"><div class="qa-num">09</div><div class="qa-title">Explain your rapid heart attack kit and the h-FABP biomarker.</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Keep it simple. Explain why h-FABP is faster than standard troponin tests for rural clinics where heavy infrastructure isn't available.</p>
+          <textarea class="answer-area" id="ans-q9" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-10">
+        <div class="qa-header" onclick="toggleQA('qa-10')"><div class="qa-num">10</div><div class="qa-title">What is a viscoelastic hydrogel and why preserve stem cells at room temp?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Explain viscoelasticity in one plain-English sentence (like the gelatin metaphor from your essay). Explain that liquid nitrogen freezing is logistically impossible for rural clinics.</p>
+          <textarea class="answer-area" id="ans-q10" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NEUROSCIENCE & NEET ================= -->
+    <section id="academic-qs" class="section-block">
+      <h2 class="section-title">Neuroscience & Academics</h2>
+      <p class="section-desc">Prove you know your major and explain your pivot from Indian medical prep.</p>
+
+      <div class="qa-card" id="qa-11">
+        <div class="qa-header" onclick="toggleQA('qa-11')"><div class="qa-num">11</div><div class="qa-title">What is the difference between the CNS and PNS?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Give a crisp, 2-sentence textbook answer. CNS = Brain and Spinal Cord (processing center). PNS = All other nerves (the relay system sending messages to the body).</p>
+          <textarea class="answer-area" id="ans-q11" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-12">
+        <div class="qa-header" onclick="toggleQA('qa-12')"><div class="qa-num">12</div><div class="qa-title">Your application mentions NEET prep. Why pivot to US Neuroscience?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> <i>(High Risk)</i> Do NOT say NEET was too hard. Explain that NEET prepares you to be a clinical doctor (treating patients), but your patent work made you realize you want to be a translational researcher (inventing the treatments). India doesn't offer undergrad wet-lab research degrees.</p>
+          <textarea class="answer-area" id="ans-q12" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FINANCES & HOME TIES ================= -->
+    <section id="finance-qs" class="section-block">
+      <h2 class="section-title">Finances & Home Ties</h2>
+      <p class="section-desc">Secure the VO's trust in your funding and your intent to return.</p>
+
+      <div class="qa-card" id="qa-13">
+        <div class="qa-header" onclick="toggleQA('qa-13')"><div class="qa-num">13</div><div class="qa-title">What is the exact annual revenue (turnover) of Lacgene Technologies?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Have a specific number ready. Never say "they make a lot of money."</p>
+          <textarea class="answer-area" id="ans-q13" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-14">
+        <div class="qa-header" onclick="toggleQA('qa-14')"><div class="qa-num">14</div><div class="qa-title">If your father is expanding a factory, won't paying your tuition hurt his business?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Point back to the ₹85 Lakh Fixed Deposit. Explain that the FD is specifically reserved for your education and is separate from his operating business capital.</p>
+          <textarea class="answer-area" id="ans-q14" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+    </section>
+
+        <!-- ================= WHY US & BUFFALO ================= -->
+    <section id="why-us-qs" class="section-block">
+      <h2 class="section-title">Why US & Buffalo Scrutiny</h2>
+      <p class="section-desc">Prove your academic intent is real and financially logical.</p>
+
+      <div class="qa-card" id="qa-15">
+        <div class="qa-header" onclick="toggleQA('qa-15')"><div class="qa-num">15</div><div class="qa-title">What can US universities offer that India cannot?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Contrast theory vs. execution. Say: "In India, I cannot physically touch a centrifuge or run a viability assay until my PhD. The US allows 18-year-olds to execute wet-lab research."</p>
+          <textarea class="answer-area" id="ans-q15" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-16">
+        <div class="qa-header" onclick="toggleQA('qa-16')"><div class="qa-num">16</div><div class="qa-title">Why Buffalo and not a higher-ranked Ivy League or IIT?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Combine lab access and money. Say: "Buffalo's Honors College guarantees undergrads access to the Clinical Translational Research Center. Plus, they awarded me an $80,000 scholarship, making it a very smart business decision for my family."</p>
+          <textarea class="answer-area" id="ans-q16" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-17">
+        <div class="qa-header" onclick="toggleQA('qa-17')"><div class="qa-num">17</div><div class="qa-title">Did you just choose Buffalo because of the $80,000 scholarship?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Pivot to merit. Say: "The money is proof that an American institution validated my patents and merit. But the primary driver is the lab access to work with Dr. Weiss and Dr. Szigeti."</p>
+          <textarea class="answer-area" id="ans-q17" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-18">
+        <div class="qa-header" onclick="toggleQA('qa-18')"><div class="qa-num">18</div><div class="qa-title">Buffalo gets massive snowstorms. How will you survive?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Don't pretend you love snow. Say: "I know it's a huge shock coming from Gujarat. But I am going for the translational lab, not the weather. I'll buy the right gear and adapt."</p>
+          <textarea class="answer-area" id="ans-q18" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NEUROSCIENCE & NEET ================= -->
+    <section id="academic-qs" class="section-block">
+      <h2 class="section-title">Neuroscience & NEET</h2>
+      <p class="section-desc">Show you understand your major and have a logical academic path.</p>
+
+      <div class="qa-card" id="qa-19">
+        <div class="qa-header" onclick="toggleQA('qa-19')"><div class="qa-num">19</div><div class="qa-title">You transferred schools for NEET prep. Why abandon Indian medical school?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> This is a major trap! Do not say NEET was too hard. Say: "NEET prepares you to be a clinical doctor who prescribes medicine. My patent work made me realize I want to be the translational researcher who invents the medicine. India doesn't offer undergrad wet-lab degrees for that."</p>
+          <textarea class="answer-area" id="ans-q19" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-20">
+        <div class="qa-header" onclick="toggleQA('qa-20')"><div class="qa-num">20</div><div class="qa-title">What is Neuroplasticity?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Tie it to your essay. Say: "It's the brain's ability to rewire itself. I saw it firsthand when my illiterate grandfather learned to use a smartphone through pattern recognition instead of reading letters."</p>
+          <textarea class="answer-area" id="ans-q20" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-21">
+        <div class="qa-header" onclick="toggleQA('qa-21')"><div class="qa-num">21</div><div class="qa-title">What is the difference between the CNS and PNS?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> Keep it clean and textbook. "The CNS is the brain and spinal cord—the processing center. The PNS is the network of nerves—the cables that send the signals to the body."</p>
+          <textarea class="answer-area" id="ans-q21" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+
+      <div class="qa-card" id="qa-22">
+        <div class="qa-header" onclick="toggleQA('qa-22')"><div class="qa-num">22</div><div class="qa-title">What are neural stem cells and why do they matter to your research?</div></div>
+        <div class="qa-body">
+          <p style="font-size:var(--text-sm);color:var(--color-text-muted);"><strong>Strategy:</strong> "They can replace dead tissue in diseases like Alzheimer's. But currently, they require liquid nitrogen to survive. My hydrogel hypothesis aims to preserve them at room temperature so rural clinics can use them."</p>
+          <textarea class="answer-area" id="ans-q22" placeholder="Your answer..." oninput="saveAnswers()"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STUDY SCHEDULE ================= -->
+    <section id="schedule" class="section-block">
+      <h2 class="section-title">Study Schedule (May 1 - 13)</h2>
+      <p class="section-desc">A structured 12-day countdown plan to get you ready.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">May 1 - 3: Script Writing</div>
+          <div class="timeline-content">
+            Use the <strong>Core Questions</strong> tab. Write down all 5 answers. Focus on making them sound like you speaking normally, not a textbook. Don't worry about memorizing yet, just finalize the words.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">May 4 - 6: Hook Memorization</div>
+          <div class="timeline-content">
+            Memorize <strong>ONLY the Hooks</strong>. The first 5 to 8 seconds of your answer is when the Visa Officer decides your fate. Practice saying the hooks out loud in front of a mirror until you don't stumble.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">May 7 - 9: Document & Finance Drill</div>
+          <div class="timeline-content">
+            Organize your clear folder. Put Required Docs on the left, Supporting on the right. 
+            <br><br><strong>Financial Drill:</strong> Practice saying your 3 numbers instantly: <em>"₹85 Lakh FD, $80K Scholarship, $40,600 out of pocket."</em>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">May 10 - 11: Mock Interviews</div>
+          <div class="timeline-content">
+            Have your parents or a friend ask you the 5 core questions out of order. Practice being interrupted. If they interrupt you, stop talking immediately, smile, and answer the new question.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">May 12: Rest & Pack</div>
+          <div class="timeline-content">
+            Stop practicing by 5 PM. Review your document folder one last time. Lay out your formal clothes. Sleep early.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ================= INTERVIEW TIPS ================= -->
+    <section id="tips" class="section-block">
+      <h2 class="section-title">Visa Officer Psychology & Tips</h2>
+      <p class="section-desc">How to behave in front of the window.</p>
+
+      <div class="grid-4" style="grid-template-columns: 1fr 1fr;">
+        <div class="card">
+          <h3 style="font-size:var(--text-base); color:var(--color-primary); margin-bottom:8px;">The 10-Second Rule</h3>
+          <p style="font-size:var(--text-sm); color:var(--color-text-muted);">The VO (Visa Officer) does 100+ interviews a day. They are exhausted. They make up their mind in the first 10 seconds. Never start an answer with background fluff. Give the punchline immediately (The Hook), then explain.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:var(--text-base); color:var(--color-error); margin-bottom:8px;">Handling Interruptions</h3>
+          <p style="font-size:var(--text-sm); color:var(--color-text-muted);">Officers WILL interrupt you mid-sentence. This is a stress test. If they interrupt, stop talking immediately. Do not try to finish your sentence. Listen to the new question and pivot seamlessly.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:var(--text-base); color:var(--color-gold); margin-bottom:8px;">Document Discipline</h3>
+          <p style="font-size:var(--text-sm); color:var(--color-text-muted);">Never shove documents through the window unprompted. Wait for them to ask. Say: <em>"My father is funding me with an 85 Lakh FD. I have the bank statement here if you'd like to see it."</em> Let them invite it.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:var(--text-base); color:var(--color-success); margin-bottom:8px;">Body Language</h3>
+          <p style="font-size:var(--text-sm); color:var(--color-text-muted);">Stand straight. Keep your hands visible on the counter, not in your pockets. Look the officer in the eye, not at the keyboard or your documents. You are a scientist discussing your future, act like one.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+537
+
+
+
+            <!-- ================= ALL INTERVIEW CATEGORIES ================= -->
+            
+            <!-- PERSONAL BACKGROUND -->
+            <section id="personal-qs" class="section-block">
+                <h2 class="section-title">Personal Background Questions</h2>
+                <p class="section-desc">Questions about your personal life, family, and background.</p>
+                
+                <div class="qa-card" id="qa-201"><div class="qa-header" onclick="toggleQA('qa-201')"><div class="qa-num">201</div><div class="qa-title">Tell me about yourself</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> Start with "Currently completing Class 12 CBSE at [School Name] in Surat", mention neuroscience patents, then segue to Buffalo acceptance. Keep under 90 seconds.</p>
+                        <textarea class="answer-area" id="ans-qa-201" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-202"><div class="qa-header" onclick="toggleQA('qa-202')"><div class="qa-num">202</div><div class="qa-title">What do your parents do?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "My father runs Lacgene Technologies in Surat - a pharmaceutical ingredients company with 2 patents I co-authored. My mother manages our home."</p>
+                        <textarea class="answer-area" id="ans-qa-202" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-203"><div class="qa-header" onclick="toggleQA('qa-203')"><div class="qa-num">203</div><div class="qa-title">Do you have siblings?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> Keep brief. If yes, mention their education/work. If no, say "I'm an only child focused on my studies."</p>
+                        <textarea class="answer-area" id="ans-qa-203" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-204"><div class="qa-header" onclick="toggleQA('qa-204')"><div class="qa-num">204</div><div class="qa-title">Why Surat? Tell me about your hometown</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Surat is Gujarat's diamond and textile hub. Growing up here showed me entrepreneurship, but I need specialized neuroscience training abroad."</p>
+                        <textarea class="answer-area" id="ans-qa-204" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-205"><div class="qa-header" onclick="toggleQA('qa-205')"><div class="qa-num">205</div><div class="qa-title">What are your hobbies?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> Mention 2-3 genuine hobbies that show discipline: "I enjoy [hobby 1], [hobby 2], and reading neuroscience research papers."</p>
+                        <textarea class="answer-area" id="ans-qa-205" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+            </section>
+            
+                        <!-- ACADEMIC JOURNEY -->
+            <section id="academic-journey-qs" class="section-block">
+                <h2 class="section-title">Academic Journey Questions</h2>
+                <p class="section-desc">Questions about your educational background and achievements.</p>
+                
+                <div class="qa-card" id="qa-206"><div class="qa-header" onclick="toggleQA('qa-206')"><div class="qa-num">206</div><div class="qa-title">What is your current academic status?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Completing Class 12 CBSE in April 2026 with 91.7% in Class 10. Strong in PCM+Biology for neuroscience foundation."</p>
+                        <textarea class="answer-area" id="ans-qa-206" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-207"><div class="qa-header" onclick="toggleQA('qa-207')"><div class="qa-num">207</div><div class="qa-title">Why did you choose science stream?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Fascinated by how the brain works since childhood. Science stream gave me biology, chemistry, physics foundation for neuroscience."</p>
+                        <textarea class="answer-area" id="ans-qa-207" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-208"><div class="qa-header" onclick="toggleQA('qa-208')"><div class="qa-num">208</div><div class="qa-title">What is your IELTS/TOEFL score?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "I scored 7.5 overall in IELTS - demonstrates English proficiency for US academics."</p>
+                        <textarea class="answer-area" id="ans-qa-208" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-209"><div class="qa-header" onclick="toggleQA('qa-209')"><div class="qa-num">209</div><div class="qa-title">What is your SAT/ACT score?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> State your actual score and percentile. If not taken: "Buffalo's Honors College admitted me based on my strong academics and research portfolio."</p>
+                        <textarea class="answer-area" id="ans-qa-209" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-210"><div class="qa-header" onclick="toggleQA('qa-210')"><div class="qa-num">210</div><div class="qa-title">Why didn't you appear for NEET?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "NEET leads to MBBS - clinical medicine. I want neuroscience research, not medical practice. Different career paths."</p>
+                        <textarea class="answer-area" id="ans-qa-210" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-211"><div class="qa-header" onclick="toggleQA('qa-211')"><div class="qa-num">211</div><div class="qa-title">What are your strongest subjects?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Biology and Chemistry - directly relevant to neuroscience. Also strong in Math for computational neuroscience models."</p>
+                        <textarea class="answer-area" id="ans-qa-211" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-212"><div class="qa-header" onclick="toggleQA('qa-212')"><div class="qa-num">212</div><div class="qa-title">Have you won any academic awards?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> List any academic achievements, olympiads, science fairs. If none: "My biggest achievement is co-authoring 2 neuroscience patents."</p>
+                        <textarea class="answer-area" id="ans-qa-212" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- UNIVERSITY SELECTION -->
+            <section id="university-selection-qs" class="section-block">
+                <h2 class="section-title">University Selection Questions</h2>
+                <p class="section-desc">Questions about why you chose this specific university and program.</p>
+                
+                <div class="qa-card" id="qa-213"><div class="qa-header" onclick="toggleQA('qa-213')"><div class="qa-num">213</div><div class="qa-title">How many universities did you apply to?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> Be honest. "I applied to 5-6 universities: Buffalo, Rutgers, Purdue, Pittsburgh. Buffalo gave best neuroscience+scholarship combination."</p>
+                        <textarea class="answer-area" id="ans-qa-213" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-214"><div class="qa-header" onclick="toggleQA('qa-214')"><div class="qa-num">214</div><div class="qa-title">Which other universities accepted you?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> Be truthful. If only Buffalo: "Buffalo was my top choice and I'm thrilled they accepted me with scholarship."</p>
+                        <textarea class="answer-area" id="ans-qa-214" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-215"><div class="qa-header" onclick="toggleQA('qa-215')"><div class="qa-num">215</div><div class="qa-title">Why not MIT, Harvard, or Stanford?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Buffalo's Honors College gives me small class sizes, direct faculty mentorship, and specialized neuroscience track - better for undergrad than huge research universities."</p>
+                        <textarea class="answer-area" id="ans-qa-215" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-216"><div class="qa-header" onclick="toggleQA('qa-216')"><div class="qa-num">216</div><div class="qa-title">What do you know about Buffalo city?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Second largest city in New York, near Niagara Falls, affordable living, diverse community, cold winters I'm prepared for."</p>
+                        <textarea class="answer-area" id="ans-qa-216" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-217"><div class="qa-header" onclick="toggleQA('qa-217')"><div class="qa-num">217</div><div class="qa-title">Have you contacted any professors at Buffalo?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> If yes, name them. If no: "I've researched faculty like Dr. [Name] in the neuroscience department and plan to reach out after enrollment."</p>
+                        <textarea class="answer-area" id="ans-qa-217" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-218"><div class="qa-header" onclick="toggleQA('qa-218')"><div class="qa-num">218</div><div class="qa-title">What specific courses at Buffalo interest you?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> Research and name 3-4 actual courses: "Computational Neuroscience, Behavioral Neuroscience, Neural Systems - align perfectly with my patent work."</p>
+                        <textarea class="answer-area" id="ans-qa-218" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-219"><div class="qa-header" onclick="toggleQA('qa-219')"><div class="qa-num">219</div><div class="qa-title">Why a 4-year degree when Indian engineering is 4 years too?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "US undergrad offers liberal arts flexibility, research opportunities from year 1, and direct PhD pathway - Indian system is more rigid."</p>
+                        <textarea class="answer-area" id="ans-qa-219" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+            </section>
+            
+                        <!-- FINANCIAL PLANNING -->
+            <section id="financial-planning-qs" class="section-block">
+                <h2 class="section-title">Financial Planning Questions</h2>
+                <p class="section-desc">Questions about funding your education and financial arrangements.</p>
+                
+                <div class="qa-card" id="qa-220"><div class="qa-header" onclick="toggleQA('qa-220')"><div class="qa-num">220</div><div class="qa-title">How much will your education cost?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Total cost is approximately $30K/year. With my $80K scholarship, I'm paying ~$10K/year - affordable for my family."</p>
+                        <textarea class="answer-area" id="ans-qa-220" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-221"><div class="qa-header" onclick="toggleQA('qa-221')"><div class="qa-num">221</div><div class="qa-title">Who is paying for your education?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "My father is funding my education from his business income. He's been saving specifically for my US education."</p>
+                        <textarea class="answer-area" id="ans-qa-221" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-222"><div class="qa-header" onclick="toggleQA('qa-222')"><div class="qa-num">222</div><div class="qa-title">What is your father's annual income?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> State the amount on your I-20 sponsor documents. Be consistent with bank statements."</p>
+                        <textarea class="answer-area" id="ans-qa-222" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-223"><div class="qa-header" onclick="toggleQA('qa-223')"><div class="qa-num">223</div><div class="qa-title">Do you have any education loan?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> If yes: state bank and amount. If no: "No, my family is funding from savings and business income."</p>
+                        <textarea class="answer-area" id="ans-qa-223" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-224"><div class="qa-header" onclick="toggleQA('qa-224')"><div class="qa-num">224</div><div class="qa-title">What is the source of your funds?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Business profits from Lacgene Technologies, saved over the past years specifically for my education."</p>
+                        <textarea class="answer-area" id="ans-qa-224" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-225"><div class="qa-header" onclick="toggleQA('qa-225')"><div class="qa-num">225</div><div class="qa-title">How will you manage living expenses?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Buffalo is affordable - on-campus housing ~$15K/year, food included. My scholarship covers most tuition, leaving enough for living costs."</p>
+                        <textarea class="answer-area" id="ans-qa-225" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- FUTURE PLANS -->
+            <section id="future-plans-qs" class="section-block">
+                <h2 class="section-title">Future Plans Questions</h2>
+                <p class="section-desc">Questions about your career goals and post-graduation plans.</p>
+                
+                <div class="qa-card" id="qa-226"><div class="qa-header" onclick="toggleQA('qa-226')"><div class="qa-num">226</div><div class="qa-title">What will you do after graduation?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "PhD in neuroscience, then return to India to lead research at Lacgene's new neuroscience division."</p>
+                        <textarea class="answer-area" id="ans-qa-226" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-227"><div class="qa-header" onclick="toggleQA('qa-227')"><div class="qa-num">227</div><div class="qa-title">Why will you return to India?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "My family business is expanding into neuroscience products. I'll bring US expertise to lead this division in Surat."</p>
+                        <textarea class="answer-area" id="ans-qa-227" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-228"><div class="qa-header" onclick="toggleQA('qa-228')"><div class="qa-num">228</div><div class="qa-title">Do you plan to work in the US?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Only during OPT for practical experience - 1-2 years max. Then returning to join family business in India."</p>
+                        <textarea class="answer-area" id="ans-qa-228" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-229"><div class="qa-header" onclick="toggleQA('qa-229')"><div class="qa-num">229</div><div class="qa-title">What if you get a job offer in the US?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "I appreciate opportunities but my goal is to contribute to India's neuroscience sector. My family business needs me."</p>
+                        <textarea class="answer-area" id="ans-qa-229" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-230"><div class="qa-header" onclick="toggleQA('qa-230')"><div class="qa-num">230</div><div class="qa-title">Do you have any relatives in the US?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> Be truthful. If yes: briefly mention. If no: "No relatives - I'll be fully independent at Buffalo."</p>
+                        <textarea class="answer-area" id="ans-qa-230" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- FAMILY TIES -->
+            <section id="family-ties-qs" class="section-block">
+                <h2 class="section-title">Family & Home Ties Questions</h2>
+                <p class="section-desc">Questions demonstrating your ties to India and intent to return.</p>
+                
+                <div class="qa-card" id="qa-231"><div class="qa-header" onclick="toggleQA('qa-231')"><div class="qa-num">231</div><div class="qa-title">What does your father's company do?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Lacgene Technologies manufactures pharmaceutical ingredients - active pharmaceutical ingredients and excipients for drug formulation."</p>
+                        <textarea class="answer-area" id="ans-qa-231" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-232"><div class="qa-header" onclick="toggleQA('qa-232')"><div class="qa-num">232</div><div class="qa-title">Will you join your father's business?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Yes - my neuroscience training will help us develop neurological pharmaceutical products. I'm the natural successor."</p>
+                        <textarea class="answer-area" id="ans-qa-232" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-233"><div class="qa-header" onclick="toggleQA('qa-233')"><div class="qa-num">233</div><div class="qa-title">Do you own any property in India?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "My family owns our factory in Surat industrial estate and our residence. I'll inherit these assets."</p>
+                        <textarea class="answer-area" id="ans-qa-233" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-234"><div class="qa-header" onclick="toggleQA('qa-234')"><div class="qa-num">234</div><div class="qa-title">What ties do you have to India?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Family business, aging parents who need me, property ownership, cultural roots in Surat - everything pulling me back."</p>
+                        <textarea class="answer-area" id="ans-qa-234" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-235"><div class="qa-header" onclick="toggleQA('qa-235')"><div class="qa-num">235</div><div class="qa-title">Are you planning to get married?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Not during studies - fully focused on education. Eventually yes, in India after returning post-PhD."</p>
+                        <textarea class="answer-area" id="ans-qa-235" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+            </section>
+            
+                        <!-- IMMIGRATION HISTORY -->
+            <section id="immigration-qs" class="section-block">
+                <h2 class="section-title">Immigration & Visa History Questions</h2>
+                <p class="section-desc">Questions about your visa and immigration history.</p>
+                
+                <div class="qa-card" id="qa-236"><div class="qa-header" onclick="toggleQA('qa-236')"><div class="qa-num">236</div><div class="qa-title">Have you traveled abroad before?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> Be honest. If yes: list countries and purposes. If no: "This will be my first international trip - excited to study at Buffalo."</p>
+                        <textarea class="answer-area" id="ans-qa-236" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-237"><div class="qa-header" onclick="toggleQA('qa-237')"><div class="qa-num">237</div><div class="qa-title">Have you ever been refused a US visa?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> If no: "No, this is my first US visa application." If yes: explain honestly with changed circumstances.</p>
+                        <textarea class="answer-area" id="ans-qa-237" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-238"><div class="qa-header" onclick="toggleQA('qa-238')"><div class="qa-num">238</div><div class="qa-title">Do you plan to immigrate to the US?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "No - I'm going purely for education. My life, family, and future career are all in India."</p>
+                        <textarea class="answer-area" id="ans-qa-238" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- POST-GRADUATION DEEP DIVE -->
+            <section id="postgrad-qs" class="section-block">
+                <h2 class="section-title">Post-Graduation Detailed Plans</h2>
+                <p class="section-desc">Comprehensive questions about life after graduation.</p>
+                
+                <div class="qa-card" id="qa-239"><div class="qa-header" onclick="toggleQA('qa-239')"><div class="qa-num">239</div><div class="qa-title">Describe your 5-year plan</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> Year 1-4: Buffalo undergrad. Year 5-9: PhD neuroscience (possibly Buffalo or MIT). Year 10+: Lead Lacgene neuroscience division in Surat.</p>
+                        <textarea class="answer-area" id="ans-qa-239" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="qa-card" id="qa-240"><div class="qa-header" onclick="toggleQA('qa-240')"><div class="qa-num">240</div><div class="qa-title">What specific role will you have in your father's company?</div></div>
+                    <div class="qa-body">
+                        <p class="strategy"><strong>Strategy:</strong> "Head of R&D for neurological pharmaceutical products - leveraging my US neuroscience training and existing 2 patents."</p>
+                        <textarea class="answer-area" id="ans-qa-240" placeholder="Write your personalized answer here..."></textarea>
+                    </div>
+                </div>
+            </section>
+            
+                        <!-- ================= COMPREHENSIVE ADVANCED SECTIONS ================= -->
+            
+            <!-- CAREER & RESEARCH GOALS COMPREHENSIVE -->
+            <section id="career-research-qs" class="section-block">
+                <h2 class="section-title">Career & Research Goals - Comprehensive</h2>
+                <p class="section-desc">Detailed questions about your career aspirations and research interests.</p>
+                                <div class="qa-card" id="qa-301"><div class="qa-header" onclick="toggleQA('qa-301')"><div class="qa-num">301</div><div class="qa-title">Explain your neuroscience patents in detail</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Co-authored 2 patents with my father at Lacgene on hydrogel-based drug delivery for neurological conditions. One focuses on blood-brain barrier penetration."</p><textarea class="answer-area" id="ans-qa-301"></textarea></div></div>
+                <div class="qa-card" id="qa-302"><div class="qa-header" onclick="toggleQA('qa-302')"><div class="qa-num">302</div><div class="qa-title">What specific neuroscience research do you want to conduct?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Brain-computer interfaces, neural plasticity, computational models of cognition - aligning with Buffalo's strengths."</p><textarea class="answer-area" id="ans-qa-302"></textarea></div></div>
+                <div class="qa-card" id="qa-303"><div class="qa-header" onclick="toggleQA('qa-303')"><div class="qa-num">303</div><div class="qa-title">Which professors at Buffalo do you want to work with?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> Research and name 2-3 faculty: "Dr. [Name] in computational neuroscience, Dr. [Name] in behavioral neuroscience."</p><textarea class="answer-area" id="ans-qa-303"></textarea></div></div>
+                <div class="qa-card" id="qa-304"><div class="qa-header" onclick="toggleQA('qa-304')"><div class="qa-num">304</div><div class="qa-title">How will your degree help your family business?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Enable us to develop neuroscience-focused pharmaceuticals - huge untapped market in India."</p><textarea class="answer-area" id="ans-qa-304"></textarea></div></div>
+                <div class="qa-card" id="qa-305"><div class="qa-header" onclick="toggleQA('qa-305')"><div class="qa-num">305</div><div class="qa-title">What's the difference between neuroscience and neurology?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Neuroscience studies the nervous system scientifically; neurology is clinical medicine treating brain disorders. I want research, not medicine."</p><textarea class="answer-area" id="ans-qa-305"></textarea></div></div>
+                <div class="qa-card" id="qa-306"><div class="qa-header" onclick="toggleQA('qa-306')"><div class="qa-num">306</div><div class="qa-title">Why not just do a PhD directly?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "US undergrad provides broad foundation - liberal arts, research exposure, strong PhD preparation. Direct PhD too specialized."</p><textarea class="answer-area" id="ans-qa-306"></textarea></div></div>
+                <div class="qa-card" id="qa-307"><div class="qa-header" onclick="toggleQA('qa-307')"><div class="qa-num">307</div><div class="qa-title">What neuroscience labs at Buffalo interest you?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> Research Buffalo's neuroscience centers: "Center for Cognitive Science, Neural Interface Lab, Computational Neuroscience Group."</p><textarea class="answer-area" id="ans-qa-307"></textarea></div></div>
+                <div class="qa-card" id="qa-308"><div class="qa-header" onclick="toggleQA('qa-308')"><div class="qa-num">308</div><div class="qa-title">How do you plan to balance coursework and research?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Honors College requires thesis - forces research integration. Buffalo's undergrad research opportunities from freshman year."</p><textarea class="answer-area" id="ans-qa-308"></textarea></div></div>
+                <div class="qa-card" id="qa-309"><div class="qa-header" onclick="toggleQA('qa-309')"><div class="qa-num">309</div><div class="qa-title">What if your research doesn't go well?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Research involves failure - that's how science works. Buffalo has mentors to guide me through challenges."</p><textarea class="answer-area" id="ans-qa-309"></textarea></div></div>
+                <div class="qa-card" id="qa-310"><div class="qa-header" onclick="toggleQA('qa-310')"><div class="qa-num">310</div><div class="qa-title">Describe your long-term career vision</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Lead neuroscience R&D in India, bridge US-India research collaborations, commercialize neuroscience innovations through Lacgene."</p><textarea class="answer-area" id="ans-qa-310"></textarea></div></div>
+                                <div class="qa-card" id="qa-311"><div class="qa-header" onclick="toggleQA('qa-311')"><div class="qa-num">311</div><div class="qa-title">What makes you stand out from other applicants?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "2 neuroscience patents at age 17, family business background, clear return-to-India plan, $80K scholarship recipient."</p><textarea class="answer-area" id="ans-qa-311"></textarea></div></div>
+                <div class="qa-card" id="qa-312"><div class="qa-header" onclick="toggleQA('qa-312')"><div class="qa-num">312</div><div class="qa-title">How will you contribute to Buffalo campus?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Indian Student Association, neuroscience club, research presentations, mentor younger students in biology."</p><textarea class="answer-area" id="ans-qa-312"></textarea></div></div>
+                <div class="qa-card" id="qa-313"><div class="qa-header" onclick="toggleQA('qa-313')"><div class="qa-num">313</div><div class="qa-title">What are your backup career options?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Even if research doesn't work out, I can apply neuroscience training to pharmaceutical development, biotechnology, or education in India."</p><textarea class="answer-area" id="ans-qa-313"></textarea></div></div>
+                <div class="qa-card" id="qa-314"><div class="qa-header" onclick="toggleQA('qa-314')"><div class="qa-num">314</div><div class="qa-title">Why neuroscience specifically, not just biology?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Brain is the most complex organ - understanding it could revolutionize medicine. My patents already touch this field."</p><textarea class="answer-area" id="ans-qa-314"></textarea></div></div>
+                <div class="qa-card" id="qa-315"><div class="qa-header" onclick="toggleQA('qa-315')"><div class="qa-num">315</div><div class="qa-title">How do you stay updated on neuroscience advances?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Read Nature Neuroscience, Science, follow researchers on Twitter, attend webinars, discuss with my father's research team."</p><textarea class="answer-area" id="ans-qa-315"></textarea></div></div>
+                <div class="qa-card" id="qa-316"><div class="qa-header" onclick="toggleQA('qa-316')"><div class="qa-num">316</div><div class="qa-title">What neuroscience breakthrough excites you most?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Brain-computer interfaces for paralyzed patients, CRISPR for neurological diseases, artificial intelligence mapping neural networks."</p><textarea class="answer-area" id="ans-qa-316"></textarea></div></div>
+                <div class="qa-card" id="qa-317"><div class="qa-header" onclick="toggleQA('qa-317')"><div class="qa-num">317</div><div class="qa-title">How does Buffalo compare to your other universities?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Buffalo gave best scholarship, strong neuroscience program, Honors College small classes, proximity to research hospitals."</p><textarea class="answer-area" id="ans-qa-317"></textarea></div></div>
+                <div class="qa-card" id="qa-318"><div class="qa-header" onclick="toggleQA('qa-318')"><div class="qa-num">318</div><div class="qa-title">What's your dream research project?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Develop affordable brain-computer interface for Indian patients - combining US technology with Indian manufacturing cost advantages."</p><textarea class="answer-area" id="ans-qa-318"></textarea></div></div>
+                <div class="qa-card" id="qa-319"><div class="qa-header" onclick="toggleQA('qa-319')"><div class="qa-num">319</div><div class="qa-title">How will you handle being away from family?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Video calls, focus on studies, join Indian community at Buffalo, visit during breaks if possible."</p><textarea class="answer-area" id="ans-qa-319"></textarea></div></div>
+                <div class="qa-card" id="qa-320"><div class="qa-header" onclick="toggleQA('qa-320')"><div class="qa-num">320</div><div class="qa-title">What's your strategy for academic success at Buffalo?</div></div><div class="qa-body"><p class="strategy"><strong>Strategy:</strong> "Attend all classes, use office hours, join study groups, maintain balance, seek research opportunities early."</p><textarea class="answer-area" id="ans-qa-320"></textarea></div></div>
+            </section>
+            
+                        <!-- ACADEMIC EXCELLENCE & COMPETITION -->
+            <section id="academic-excellence-qs" class="section-block">
+                <h2 class="section-title">Academic Excellence & Competition</h2>
+                <p class="section-desc">25 comprehensive questions about academics, competition, and achievements.</p>
+                                <div class="qa-card" id="qa-321"><div class="qa-header" onclick="toggleQA('qa-321')"><div class="qa-num">321</div><div class="qa-title">What's your class rank?</div></div><div class="qa-body"><p class="strategy">Be honest about rank, emphasize strong subjects relevant to neuroscience.</p><textarea class="answer-area" id="ans-qa-321"></textarea></div></div>
+                <div class="qa-card" id="qa-322"><div class="qa-header" onclick="toggleQA('qa-322')"><div class="qa-num">322</div><div class="qa-title">How do you handle academic competition?</div></div><div class="qa-body"><p class="strategy">Collaborative learning, healthy competition drives improvement.</p><textarea class="answer-area" id="ans-qa-322"></textarea></div></div>
+                <div class="qa-card" id="qa-323"><div class="qa-header" onclick="toggleQA('qa-323')"><div class="qa-num">323</div><div class="qa-title">What's your study routine?</div></div><div class="qa-body"><p class="strategy">Structured schedule, regular breaks, practice problems, group study.</p><textarea class="answer-area" id="ans-qa-323"></textarea></div></div>
+                <div class="qa-card" id="qa-324"><div class="qa-header" onclick="toggleQA('qa-324')"><div class="qa-num">324</div><div class="qa-title">Have you taken any advanced/AP courses?</div></div><div class="qa-body"><p class="strategy">List relevant courses, show academic challenge seeking.</p><textarea class="answer-area" id="ans-qa-324"></textarea></div></div>
+                <div class="qa-card" id="qa-325"><div class="qa-header" onclick="toggleQA('qa-325')"><div class="qa-num">325</div><div class="qa-title">What's your weakest subject and how do you improve it?</div></div><div class="qa-body"><p class="strategy">Show self-awareness and improvement strategies.</p><textarea class="answer-area" id="ans-qa-325"></textarea></div></div>
+                <div class="qa-card" id="qa-326"><div class="qa-header" onclick="toggleQA('qa-326')"><div class="qa-num">326</div><div class="qa-title">How will you adapt to US education system?</div></div><div class="qa-body"><p class="strategy">Research US system differences, ready for interactive learning.</p><textarea class="answer-area" id="ans-qa-326"></textarea></div></div>
+                <div class="qa-card" id="qa-327"><div class="qa-header" onclick="toggleQA('qa-327')"><div class="qa-num">327</div><div class="qa-title">What extracurricular activities do you do?</div></div><div class="qa-body"><p class="strategy">Science club, volunteering, sports - show well-rounded character.</p><textarea class="answer-area" id="ans-qa-327"></textarea></div></div>
+                <div class="qa-card" id="qa-328"><div class="qa-header" onclick="toggleQA('qa-328')"><div class="qa-num">328</div><div class="qa-title">How do you manage time between studies and activities?</div></div><div class="qa-body"><p class="strategy">Prioritization, planning, discipline - essential for US college.</p><textarea class="answer-area" id="ans-qa-328"></textarea></div></div>
+                <div class="qa-card" id="qa-329"><div class="qa-header" onclick="toggleQA('qa-329')"><div class="qa-num">329</div><div class="qa-title">What's your biggest academic achievement?</div></div><div class="qa-body"><p class="strategy">Patents, high scores, awards - quantify achievements.</p><textarea class="answer-area" id="ans-qa-329"></textarea></div></div>
+                <div class="qa-card" id="qa-330"><div class="qa-header" onclick="toggleQA('qa-330')"><div class="qa-num">330</div><div class="qa-title">How do you handle academic setbacks?</div></div><div class="qa-body"><p class="strategy">Learn from failures, seek help, persist - show resilience.</p><textarea class="answer-area" id="ans-qa-330"></textarea></div></div>
+                <div class="qa-card" id="qa-331"><div class="qa-header" onclick="toggleQA('qa-331')"><div class="qa-num">331</div><div class="qa-title">What makes a good student?</div></div><div class="qa-body"><p class="strategy">Curiosity, discipline, collaboration, asking questions.</p><textarea class="answer-area" id="ans-qa-331"></textarea></div></div>
+                <div class="qa-card" id="qa-332"><div class="qa-header" onclick="toggleQA('qa-332')"><div class="qa-num">332</div><div class="qa-title">How do you stay motivated academically?</div></div><div class="qa-body"><p class="strategy">Long-term goals, family support, passion for neuroscience.</p><textarea class="answer-area" id="ans-qa-332"></textarea></div></div>
+                <div class="qa-card" id="qa-333"><div class="qa-header" onclick="toggleQA('qa-333')"><div class="qa-num">333</div><div class="qa-title">What's your learning style?</div></div><div class="qa-body"><p class="strategy">Visual, hands-on, group discussion - adapt to situation.</p><textarea class="answer-area" id="ans-qa-333"></textarea></div></div>
+                <div class="qa-card" id="qa-334"><div class="qa-header" onclick="toggleQA('qa-334')"><div class="qa-num">334</div><div class="qa-title">How do you prepare for exams?</div></div><div class="qa-body"><p class="strategy">Systematic revision, practice tests, note-making.</p><textarea class="answer-area" id="ans-qa-334"></textarea></div></div>
+                <div class="qa-card" id="qa-335"><div class="qa-header" onclick="toggleQA('qa-335')"><div class="qa-num">335</div><div class="qa-title">What role does technology play in your education?</div></div><div class="qa-body"><p class="strategy">Online resources, simulations, research papers - comfortable with tech.</p><textarea class="answer-area" id="ans-qa-335"></textarea></div></div>
+                <div class="qa-card" id="qa-336"><div class="qa-header" onclick="toggleQA('qa-336')"><div class="qa-num">336</div><div class="qa-title">How will you contribute to class discussions?</div></div><div class="qa-body"><p class="strategy">Prepared, respectful, bring Indian perspective, ask thoughtful questions.</p><textarea class="answer-area" id="ans-qa-336"></textarea></div></div>
+                <div class="qa-card" id="qa-337"><div class="qa-header" onclick="toggleQA('qa-337')"><div class="qa-num">337</div><div class="qa-title">What books/research papers have you read recently?</div></div><div class="qa-body"><p class="strategy">Name specific neuroscience papers, show genuine interest.</p><textarea class="answer-area" id="ans-qa-337"></textarea></div></div>
+                <div class="qa-card" id="qa-338"><div class="qa-header" onclick="toggleQA('qa-338')"><div class="qa-num">338</div><div class="qa-title">How do you deal with academic stress?</div></div><div class="qa-body"><p class="strategy">Exercise, hobbies, time management, seeking support when needed.</p><textarea class="answer-area" id="ans-qa-338"></textarea></div></div>
+                <div class="qa-card" id="qa-339"><div class="qa-header" onclick="toggleQA('qa-339')"><div class="qa-num">339</div><div class="qa-title">What's your favorite neuroscience topic?</div></div><div class="qa-body"><p class="strategy">Specific topic aligned with Buffalo strengths - neuroplasticity, BCIs, etc.</p><textarea class="answer-area" id="ans-qa-339"></textarea></div></div>
+                <div class="qa-card" id="qa-340"><div class="qa-header" onclick="toggleQA('qa-340')"><div class="qa-num">340</div><div class="qa-title">How do you verify scientific information?</div></div><div class="qa-body"><p class="strategy">Peer-reviewed journals, multiple sources, critical thinking.</p><textarea class="answer-area" id="ans-qa-340"></textarea></div></div>
+                <div class="qa-card" id="qa-341"><div class="qa-header" onclick="toggleQA('qa-341')"><div class="qa-num">341</div><div class="qa-title">What scientific method do you follow?</div></div><div class="qa-body"><p class="strategy">Hypothesis, experimentation, analysis, conclusion - show research understanding.</p><textarea class="answer-area" id="ans-qa-341"></textarea></div></div>
+                <div class="qa-card" id="qa-342"><div class="qa-header" onclick="toggleQA('qa-342')"><div class="qa-num">342</div><div class="qa-title">How do you collaborate in group projects?</div></div><div class="qa-body"><p class="strategy">Communication, division of labor, conflict resolution.</p><textarea class="answer-area" id="ans-qa-342"></textarea></div></div>
+                <div class="qa-card" id="qa-343"><div class="qa-header" onclick="toggleQA('qa-343')"><div class="qa-num">343</div><div class="qa-title">What makes Buffalo's Honors College special?</div></div><div class="qa-body"><p class="strategy">Small classes, research requirement, interdisciplinary approach, mentorship.</p><textarea class="answer-area" id="ans-qa-343"></textarea></div></div>
+                <div class="qa-card" id="qa-344"><div class="qa-header" onclick="toggleQA('qa-344')"><div class="qa-num">344</div><div class="qa-title">How will you handle cultural adjustment?</div></div><div class="qa-body"><p class="strategy">Open-minded, Indian Student Association, learn American culture, share Indian culture.</p><textarea class="answer-area" id="ans-qa-344"></textarea></div></div>
+                <div class="qa-card" id="qa-345"><div class="qa-header" onclick="toggleQA('qa-345')"><div class="qa-num">345</div><div class="qa-title">What are your academic goals at Buffalo?</div></div><div class="qa-body"><p class="strategy">Dean's list, research publications, strong PhD applications, network building.</p><textarea class="answer-area" id="ans-qa-345"></textarea></div></div>
+            </section><button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+                        <!-- BUFFALO DEEP DIVE & LIFESTYLE -->
+            <section id="buffalo-deep-dive-qs" class="section-block">
+                <h2 class="section-title">Buffalo Deep Dive & Lifestyle - 30 Questions</h2>
+                <p class="section-desc">Comprehensive questions about Buffalo, campus life, and adaptation.</p>
+                <div class="qa-card" id="qa-346"><div class="qa-header" onclick="toggleQA('qa-346')"><div class="qa-num">346</div><div class="qa-title">Why Buffalo over New York City universities?</div></div><div class="qa-body"><p class="strategy">Focused academic environment, affordable, less distractions.</p><textarea class="answer-area" id="ans-qa-346"></textarea></div></div>
+<div class="qa-card" id="qa-347"><div class="qa-header" onclick="toggleQA('qa-347')"><div class="qa-num">347</div><div class="qa-title">How will you handle Buffalo winters?</div></div><div class="qa-body"><p class="strategy">Prepared with proper clothing, indoor activities, focus on studies.</p><textarea class="answer-area" id="ans-qa-347"></textarea></div></div>
+<div class="qa-card" id="qa-348"><div class="qa-header" onclick="toggleQA('qa-348')"><div class="qa-num">348</div><div class="qa-title">What Buffalo research facilities attract you?</div></div><div class="qa-body"><p class="strategy">Name specific labs, centers, equipment for neuroscience.</p><textarea class="answer-area" id="ans-qa-348"></textarea></div></div>
+<div class="qa-card" id="qa-349"><div class="qa-header" onclick="toggleQA('qa-349')"><div class="qa-num">349</div><div class="qa-title">How is Buffalo's Indian community?</div></div><div class="qa-body"><p class="strategy">Active ISA, cultural events, support network for adjustment.</p><textarea class="answer-area" id="ans-qa-349"></textarea></div></div>
+<div class="qa-card" id="qa-350"><div class="qa-header" onclick="toggleQA('qa-350')"><div class="qa-num">350</div><div class="qa-title">What Buffalo clubs/organizations interest you?</div></div><div class="qa-body"><p class="strategy">Neuroscience Society, research clubs, cultural organizations.</p><textarea class="answer-area" id="ans-qa-350"></textarea></div></div>
+<div class="qa-card" id="qa-351"><div class="qa-header" onclick="toggleQA('qa-351')"><div class="qa-num">351</div><div class="qa-title">How will you manage homesickness?</div></div><div class="qa-body"><p class="strategy">Stay busy, make friends, video calls home, Indian community.</p><textarea class="answer-area" id="ans-qa-351"></textarea></div></div>
+<div class="qa-card" id="qa-352"><div class="qa-header" onclick="toggleQA('qa-352')"><div class="qa-num">352</div><div class="qa-title">What do you know about Buffalo's campus?</div></div><div class="qa-body"><p class="strategy">North/South campus, library systems, research buildings.</p><textarea class="answer-area" id="ans-qa-352"></textarea></div></div>
+<div class="qa-card" id="qa-353"><div class="qa-header" onclick="toggleQA('qa-353')"><div class="qa-num">353</div><div class="qa-title">How will you travel between campuses?</div></div><div class="qa-body"><p class="strategy">University shuttle system, biking, planning schedule wisely.</p><textarea class="answer-area" id="ans-qa-353"></textarea></div></div>
+<div class="qa-card" id="qa-354"><div class="qa-header" onclick="toggleQA('qa-354')"><div class="qa-num">354</div><div class="qa-title">What Buffalo traditions/events do you want to experience?</div></div><div class="qa-body"><p class="strategy">Fall Fest, research symposiums, cultural celebrations.</p><textarea class="answer-area" id="ans-qa-354"></textarea></div></div>
+<div class="qa-card" id="qa-355"><div class="qa-header" onclick="toggleQA('qa-355')"><div class="qa-num">355</div><div class="qa-title">How will you maintain health at Buffalo?</div></div><div class="qa-body"><p class="strategy">Campus gym, healthy eating, student health services.</p><textarea class="answer-area" id="ans-qa-355"></textarea></div></div>
+<div class="qa-card" id="qa-356"><div class="qa-header" onclick="toggleQA('qa-356')"><div class="qa-num">356</div><div class="qa-title">What vegetarian food options are at Buffalo?</div></div><div class="qa-body"><p class="strategy">Dining halls have vegetarian options, Indian grocery stores nearby.</p><textarea class="answer-area" id="ans-qa-356"></textarea></div></div>
+<div class="qa-card" id="qa-357"><div class="qa-header" onclick="toggleQA('qa-357')"><div class="qa-num">357</div><div class="qa-title">How will you budget monthly expenses?</div></div><div class="qa-body"><p class="strategy">Track spending, meal plan, minimize unnecessary costs.</p><textarea class="answer-area" id="ans-qa-357"></textarea></div></div>
+<div class="qa-card" id="qa-358"><div class="qa-header" onclick="toggleQA('qa-358')"><div class="qa-num">358</div><div class="qa-title">What Buffalo alumni have impressed you?</div></div><div class="qa-body"><p class="strategy">Research notable UB alumni in your field, show research.</p><textarea class="answer-area" id="ans-qa-358"></textarea></div></div>
+<div class="qa-card" id="qa-359"><div class="qa-header" onclick="toggleQA('qa-359')"><div class="qa-num">359</div><div class="qa-title">How does Buffalo support international students?</div></div><div class="qa-body"><p class="strategy">International Student Services, orientation, visa support.</p><textarea class="answer-area" id="ans-qa-359"></textarea></div></div>
+<div class="qa-card" id="qa-360"><div class="qa-header" onclick="toggleQA('qa-360')"><div class="qa-num">360</div><div class="qa-title">What's Buffalo's ranking and why does it matter?</div></div><div class="qa-body"><p class="strategy">Top public research university, AAU member, focus on fit not just rank.</p><textarea class="answer-area" id="ans-qa-360"></textarea></div></div>
+<div class="qa-card" id="qa-361"><div class="qa-header" onclick="toggleQA('qa-361')"><div class="qa-num">361</div><div class="qa-title">How will you network at Buffalo?</div></div><div class="qa-body"><p class="strategy">Office hours, research labs, professional organizations, LinkedIn.</p><textarea class="answer-area" id="ans-qa-361"></textarea></div></div>
+<div class="qa-card" id="qa-362"><div class="qa-header" onclick="toggleQA('qa-362')"><div class="qa-num">362</div><div class="qa-title">What Buffalo library resources will you use?</div></div><div class="qa-body"><p class="strategy">Research databases, study spaces, journal access.</p><textarea class="answer-area" id="ans-qa-362"></textarea></div></div>
+<div class="qa-card" id="qa-363"><div class="qa-header" onclick="toggleQA('qa-363')"><div class="qa-num">363</div><div class="qa-title">How does Buffalo prepare students for PhDs?</div></div><div class="qa-body"><p class="strategy">Research requirements, faculty mentorship, strong grad school placement.</p><textarea class="answer-area" id="ans-qa-363"></textarea></div></div>
+<div class="qa-card" id="qa-364"><div class="qa-header" onclick="toggleQA('qa-364')"><div class="qa-num">364</div><div class="qa-title">What safety measures are at Buffalo?</div></div><div class="qa-body"><p class="strategy">Campus police, emergency notifications, safe escort services.</p><textarea class="answer-area" id="ans-qa-364"></textarea></div></div>
+<div class="qa-card" id="qa-365"><div class="qa-header" onclick="toggleQA('qa-365')"><div class="qa-num">365</div><div class="qa-title">How will you participate in research at Buffalo?</div></div><div class="qa-body"><p class="strategy">Contact professors, apply to research programs, Honors thesis.</p><textarea class="answer-area" id="ans-qa-365"></textarea></div></div>
+<div class="qa-card" id="qa-366"><div class="qa-header" onclick="toggleQA('qa-366')"><div class="qa-num">366</div><div class="qa-title">What makes SUNY Buffalo different from privates?</div></div><div class="qa-body"><p class="strategy">Public research mission, diverse student body, affordability with quality.</p><textarea class="answer-area" id="ans-qa-366"></textarea></div></div>
+<div class="qa-card" id="qa-367"><div class="qa-header" onclick="toggleQA('qa-367')"><div class="qa-num">367</div><div class="qa-title">How will you use Buffalo's career services?</div></div><div class="qa-body"><p class="strategy">Resume help, internship search, PhD application guidance.</p><textarea class="answer-area" id="ans-qa-367"></textarea></div></div>
+<div class="qa-card" id="qa-368"><div class="qa-header" onclick="toggleQA('qa-368')"><div class="qa-num">368</div><div class="qa-title">What Buffalo partnerships/collaborations interest you?</div></div><div class="qa-body"><p class="strategy">Roswell Park Cancer Institute, local biotech companies.</p><textarea class="answer-area" id="ans-qa-368"></textarea></div></div>
+<div class="qa-card" id="qa-369"><div class="qa-header" onclick="toggleQA('qa-369')"><div class="qa-num">369</div><div class="qa-title">How will you make the most of 4 years?</div></div><div class="qa-body"><p class="strategy">Research early, strong GPA, networking, leadership roles.</p><textarea class="answer-area" id="ans-qa-369"></textarea></div></div>
+<div class="qa-card" id="qa-370"><div class="qa-header" onclick="toggleQA('qa-370')"><div class="qa-num">370</div><div class="qa-title">What will you miss most about India?</div></div><div class="qa-body"><p class="strategy">Family, food, festivals - but excited for education opportunity.</p><textarea class="answer-area" id="ans-qa-370"></textarea></div></div>
+<div class="qa-card" id="qa-371"><div class="qa-header" onclick="toggleQA('qa-371')"><div class="qa-num">371</div><div class="qa-title">How does Buffalo weather compare to Surat?</div></div><div class="qa-body"><p class="strategy">Much colder, more snow - prepared and adaptable.</p><textarea class="answer-area" id="ans-qa-371"></textarea></div></div>
+<div class="qa-card" id="qa-372"><div class="qa-header" onclick="toggleQA('qa-372')"><div class="qa-num">372</div><div class="qa-title">What Buffalo sports/recreation will you try?</div></div><div class="qa-body"><p class="strategy">Intramural sports, gym facilities, outdoor activities.</p><textarea class="answer-area" id="ans-qa-372"></textarea></div></div>
+<div class="qa-card" id="qa-373"><div class="qa-header" onclick="toggleQA('qa-373')"><div class="qa-num">373</div><div class="qa-title">How will you contribute to diversity at Buffalo?</div></div><div class="qa-body"><p class="strategy">Indian perspective, cultural exchange, research diversity.</p><textarea class="answer-area" id="ans-qa-373"></textarea></div></div>
+<div class="qa-card" id="qa-374"><div class="qa-header" onclick="toggleQA('qa-374')"><div class="qa-num">374</div><div class="qa-title">What Buffalo housing option will you choose?</div></div><div class="qa-body"><p class="strategy">Freshman dorms for community, then explore other options.</p><textarea class="answer-area" id="ans-qa-374"></textarea></div></div>
+<div class="qa-card" id="qa-375"><div class="qa-header" onclick="toggleQA('qa-375')"><div class="qa-num">375</div><div class="qa-title">How does Buffalo prepare you for global careers?</div></div><div class="qa-body"><p class="strategy">International exposure, diverse cohort, global research connections.</p><textarea class="answer-area" id="ans-qa-375"></textarea></div></div>
+</section>
+
+            <!-- CHALLENGING SCENARIOS & EDGE CASES -->
+            <section id="challenging-scenarios-qs" class="section-block">
+                <h2 class="section-title">Challenging Scenarios & Edge Cases - 30 Questions</h2>
+                <p class="section-desc">Tough questions, follow-ups, and edge case scenarios.</p>
+                <div class="qa-card" id="qa-376"><div class="qa-header" onclick="toggleQA('qa-376')"><div class="qa-num">376</div><div class="qa-title">What if your visa is denied today?</div></div><div class="qa-body"><p class="strategy">Stay calm: "I'd respectfully ask for feedback, address concerns, and reapply if appropriate."</p><textarea class="answer-area" id="ans-qa-376"></textarea></div></div>
+<div class="qa-card" id="qa-377"><div class="qa-header" onclick="toggleQA('qa-377')"><div class="qa-num">377</div><div class="qa-title">Why should we believe you'll return to India?</div></div><div class="qa-body"><p class="strategy">Family business needs me, property inheritance, cultural ties, specific role waiting.</p><textarea class="answer-area" id="ans-qa-377"></textarea></div></div>
+<div class="qa-card" id="qa-378"><div class="qa-header" onclick="toggleQA('qa-378')"><div class="qa-num">378</div><div class="qa-title">What if you fail academically at Buffalo?</div></div><div class="qa-body"><p class="strategy">Use support services, adjust study methods, seek tutoring - prepared to work hard.</p><textarea class="answer-area" id="ans-qa-378"></textarea></div></div>
+<div class="qa-card" id="qa-379"><div class="qa-header" onclick="toggleQA('qa-379')"><div class="qa-num">379</div><div class="qa-title">How will you handle discrimination/racism?</div></div><div class="qa-body"><p class="strategy">Stay respectful, report to authorities, focus on education, not let it derail goals.</p><textarea class="answer-area" id="ans-qa-379"></textarea></div></div>
+<div class="qa-card" id="qa-380"><div class="qa-header" onclick="toggleQA('qa-380')"><div class="qa-num">380</div><div class="qa-title">What if your father's business fails?</div></div><div class="qa-body"><p class="strategy">Still complete degree, adjust budget, possibly work on campus, but committed to education.</p><textarea class="answer-area" id="ans-qa-380"></textarea></div></div>
+<div class="qa-card" id="qa-381"><div class="qa-header" onclick="toggleQA('qa-381')"><div class="qa-num">381</div><div class="qa-title">Why not work in India first then study?</div></div><div class="qa-body"><p class="strategy">Best to study young, fresh perspective, US education opens better opportunities.</p><textarea class="answer-area" id="ans-qa-381"></textarea></div></div>
+<div class="qa-card" id="qa-382"><div class="qa-header" onclick="toggleQA('qa-382')"><div class="qa-num">382</div><div class="qa-title">What if you meet someone and want to stay?</div></div><div class="qa-body"><p class="strategy">Personal life won't override career plans, family business responsibilities in India.</p><textarea class="answer-area" id="ans-qa-382"></textarea></div></div>
+<div class="qa-card" id="qa-383"><div class="qa-header" onclick="toggleQA('qa-383')"><div class="qa-num">383</div><div class="qa-title">How do we know your documents are genuine?</div></div><div class="qa-body"><p class="strategy">All verified by university, authentic transcripts, genuine financial documents.</p><textarea class="answer-area" id="ans-qa-383"></textarea></div></div>
+<div class="qa-card" id="qa-384"><div class="qa-header" onclick="toggleQA('qa-384')"><div class="qa-num">384</div><div class="qa-title">What if immigration policies change?</div></div><div class="qa-body"><p class="strategy">Adapt within legal framework, maintain student status, comply with regulations.</p><textarea class="answer-area" id="ans-qa-384"></textarea></div></div>
+<div class="qa-card" id="qa-385"><div class="qa-header" onclick="toggleQA('qa-385')"><div class="qa-num">385</div><div class="qa-title">Why such expensive education for uncertain returns?</div></div><div class="qa-body"><p class="strategy">Investment in specialized knowledge, clear application in family business.</p><textarea class="answer-area" id="ans-qa-385"></textarea></div></div>
+<div class="qa-card" id="qa-386"><div class="qa-header" onclick="toggleQA('qa-386')"><div class="qa-num">386</div><div class="qa-title">What if India's economy declines?</div></div><div class="qa-body"><p class="strategy">Neuroscience field growing globally, India investing in healthcare - opportunities will exist.</p><textarea class="answer-area" id="ans-qa-386"></textarea></div></div>
+<div class="qa-card" id="qa-387"><div class="qa-header" onclick="toggleQA('qa-387')"><div class="qa-num">387</div><div class="qa-title">How will you prove non-immigrant intent?</div></div><div class="qa-body"><p class="strategy">Family business, property ties, specific return plans, no US relatives.</p><textarea class="answer-area" id="ans-qa-387"></textarea></div></div>
+<div class="qa-card" id="qa-388"><div class="qa-header" onclick="toggleQA('qa-388')"><div class="qa-num">388</div><div class="qa-title">What if you can't adjust to US culture?</div></div><div class="qa-body"><p class="strategy">Researched cultural differences, open-minded, adaptable, Indian community support.</p><textarea class="answer-area" id="ans-qa-388"></textarea></div></div>
+<div class="qa-card" id="qa-389"><div class="qa-header" onclick="toggleQA('qa-389')"><div class="qa-num">389</div><div class="qa-title">Why not online education?</div></div><div class="qa-body"><p class="strategy">Lab research requires in-person, networking crucial, hands-on experience essential.</p><textarea class="answer-area" id="ans-qa-389"></textarea></div></div>
+<div class="qa-card" id="qa-390"><div class="qa-header" onclick="toggleQA('qa-390')"><div class="qa-num">390</div><div class="qa-title">What if COVID-like situation happens again?</div></div><div class="qa-body"><p class="strategy">Adapt to online if needed, maintain enrollment, prioritize health and education.</p><textarea class="answer-area" id="ans-qa-390"></textarea></div></div>
+<div class="qa-card" id="qa-391"><div class="qa-header" onclick="toggleQA('qa-391')"><div class="qa-num">391</div><div class="qa-title">How will your absence affect family business?</div></div><div class="qa-body"><p class="strategy">Father manages well, 4 years temporary, return with valuable expertise.</p><textarea class="answer-area" id="ans-qa-391"></textarea></div></div>
+<div class="qa-card" id="qa-392"><div class="qa-header" onclick="toggleQA('qa-392')"><div class="qa-num">392</div><div class="qa-title">What if you change your major?</div></div><div class="qa-body"><p class="strategy">Committed to neuroscience, but liberal arts allows exploration within STEM.</p><textarea class="answer-area" id="ans-qa-392"></textarea></div></div>
+<div class="qa-card" id="qa-393"><div class="qa-header" onclick="toggleQA('qa-393')"><div class="qa-num">393</div><div class="qa-title">Why not cheaper universities?</div></div><div class="qa-body"><p class="strategy">$80K scholarship makes Buffalo affordable, quality neuroscience program worth it.</p><textarea class="answer-area" id="ans-qa-393"></textarea></div></div>
+<div class="qa-card" id="qa-394"><div class="qa-header" onclick="toggleQA('qa-394')"><div class="qa-num">394</div><div class="qa-title">What if parents can't continue funding?</div></div><div class="qa-body"><p class="strategy">Scholarship covers most, savings buffer, can work on campus if needed.</p><textarea class="answer-area" id="ans-qa-394"></textarea></div></div>
+<div class="qa-card" id="qa-395"><div class="qa-header" onclick="toggleQA('qa-395')"><div class="qa-num">395</div><div class="qa-title">How do you handle failure?</div></div><div class="qa-body"><p class="strategy">Learn from mistakes, adjust approach, seek help, persist - research involves failure.</p><textarea class="answer-area" id="ans-qa-395"></textarea></div></div>
+<div class="qa-card" id="qa-396"><div class="qa-header" onclick="toggleQA('qa-396')"><div class="qa-num">396</div><div class="qa-title">What makes you different from other Indian students?</div></div><div class="qa-body"><p class="strategy">Patents, clear business succession plan, specific research interests, strong ties.</p><textarea class="answer-area" id="ans-qa-396"></textarea></div></div>
+<div class="qa-card" id="qa-397"><div class="qa-header" onclick="toggleQA('qa-397')"><div class="qa-num">397</div><div class="qa-title">Why should we trust you won't overstay?</div></div><div class="qa-body"><p class="strategy">Legal obligations, family responsibilities, career plans in India.</p><textarea class="answer-area" id="ans-qa-397"></textarea></div></div>
+<div class="qa-card" id="qa-398"><div class="qa-header" onclick="toggleQA('qa-398')"><div class="qa-num">398</div><div class="qa-title">What if research doesn't lead to career?</div></div><div class="qa-body"><p class="strategy">Degree valuable regardless, pharmaceutical industry needs trained scientists.</p><textarea class="answer-area" id="ans-qa-398"></textarea></div></div>
+<div class="qa-card" id="qa-399"><div class="qa-header" onclick="toggleQA('qa-399')"><div class="qa-num">399</div><div class="qa-title">How will you maintain Indian values in US?</div></div><div class="qa-body"><p class="strategy">Strong family connections, Indian community, regular communication home.</p><textarea class="answer-area" id="ans-qa-399"></textarea></div></div>
+<div class="qa-card" id="qa-400"><div class="qa-header" onclick="toggleQA('qa-400')"><div class="qa-num">400</div><div class="qa-title">What if you're the only Indian in class?</div></div><div class="qa-body"><p class="strategy">Opportunity to represent India, learn from diversity, comfortable being unique.</p><textarea class="answer-area" id="ans-qa-400"></textarea></div></div>
+<div class="qa-card" id="qa-401"><div class="qa-header" onclick="toggleQA('qa-401')"><div class="qa-num">401</div><div class="qa-title">Why not pursue entrepreneurship in India directly?</div></div><div class="qa-body"><p class="strategy">Need specialized training first, US education provides cutting-edge knowledge.</p><textarea class="answer-area" id="ans-qa-401"></textarea></div></div>
+<div class="qa-card" id="qa-402"><div class="qa-header" onclick="toggleQA('qa-402')"><div class="qa-num">402</div><div class="qa-title">What if US-India relations worsen?</div></div><div class="qa-body"><p class="strategy">Focus on education, maintain legal status, adapt to situations.</p><textarea class="answer-area" id="ans-qa-402"></textarea></div></div>
+<div class="qa-card" id="qa-403"><div class="qa-header" onclick="toggleQA('qa-403')"><div class="qa-num">403</div><div class="qa-title">How will you contribute to US-India relations?</div></div><div class="qa-body"><p class="strategy">Academic ambassador, cultural exchange, future research collaborations.</p><textarea class="answer-area" id="ans-qa-403"></textarea></div></div>
+<div class="qa-card" id="qa-404"><div class="qa-header" onclick="toggleQA('qa-404')"><div class="qa-num">404</div><div class="qa-title">What's your backup if everything fails?</div></div><div class="qa-body"><p class="strategy">Join family business with current qualifications, pursue education in India.</p><textarea class="answer-area" id="ans-qa-404"></textarea></div></div>
+<div class="qa-card" id="qa-405"><div class="qa-header" onclick="toggleQA('qa-405')"><div class="qa-num">405</div><div class="qa-title">Final message to visa officer?</div></div><div class="qa-body"><p class="strategy">"I'm committed student with clear goals, strong ties to India, grateful for opportunity to learn."</p><textarea class="answer-area" id="ans-qa-405"></textarea></div></div>
+</section>
+
+<script>
+// NAVIGATION
+function nav(event, targetId) {
+  if(event) {
+    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+  document.querySelectorAll('.section-block').forEach(el => el.classList.remove('active'));
+  document.getElementById(targetId).classList.add('active');
+
+  if(window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+  window.scrollTo(0,0);
+}
+
+// TOGGLE Q&A
+function toggleQA(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+// LOCALSTORAGE SAVING LOGIC
+const docsList = ['passport','ds160','appt','i20','sevis','photo','adm','fin','acad'];
+const qsList = [];
+
+function saveDocs() {
+  let checkedCount = 0;
+  docsList.forEach(id => {
+    const isChecked = document.getElementById('chk-' + id).checked;
+    localStorage.setItem('visa-doc-' + id, isChecked);
+    const wrap = document.getElementById('doc-wrap-' + id);
+    if(isChecked) {
+      wrap.classList.add('checked');
+      checkedCount++;
+    } else {
+      wrap.classList.remove('checked');
+    }
+  });
+  document.getElementById('badge-docs').innerText = checkedCount + '/9';
+  document.getElementById('tile-docs').innerText = checkedCount + '/9';
+}
+
+function saveAnswers() {
+  let ansCount = 0;
+  qsList.forEach(id => {
+    const val = document.getElementById('ans-' + id).value;
+    localStorage.setItem('visa-ans-' + id, val);
+
+    if (['q1','q2','q3','q4','q5'].includes(id) && val.trim().length > 0) {
+      ansCount++;
+      document.getElementById('qa-' + id.replace('q','')).classList.add('answered');
+    } else if (['q1','q2','q3','q4','q5'].includes(id)) {
+      document.getElementById('qa-' + id.replace('q','')).classList.remove('answered');
+    }
+  });
+  document.getElementById('badge-qs').innerText = ansCount + '/5';
+  document.getElementById('tile-qs').innerText = ansCount + '/5';
+}
+
+// LOAD FROM LOCALSTORAGE ON START
+window.onload = function() {
+  docsList.forEach(id => {
+    if(localStorage.getItem('visa-doc-' + id) === 'true') {
+      document.getElementById('chk-' + id).checked = true;
+    }
+  });
+  saveDocs();
+
+  qsList.forEach(id => {
+    const savedVal = localStorage.getItem('visa-ans-' + id);
+    if(savedVal) {
+      document.getElementById('ans-' + id).value = savedVal;
+    }
+  });
+  saveAnswers();
+
+  // COUNTDOWN
+  const interviewDate = new Date("May 13, 2026 09:00:00").getTime();
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = interviewDate - now;
+    if(distance < 0) return;
+    document.getElementById("cd-days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+    document.getElementById("cd-hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+    document.getElementById("cd-mins").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+  }, 1000);
+};
+1006
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+{
+  "categories": {
+    "core": {
+      "title": "Core Questions",
+      "questions": [
+        "Why do you want to study in the US?",
+        "Why this university?",
+        "Why this course/major?",
+        "Tell me about yourself.",
+        "What are your career goals?",
+        "How will this degree help you?",
+        "Why not study in India?",
+        "What will you do after graduation?",
+        "Why should we give you this visa?",
+        "How did you learn about this university?",
+        "What other universities did you apply to?",
+        "Why did you choose this university over others?",
+        "What do you know about the university?",
+        "What do you know about the city/state where your university is located?"
+      ]
+    },
+    "why_us": {
+      "title": "Why US/Buffalo",
+      "questions": [
+        "Why the USA specifically?",
+        "Why not Canada, UK, or Australia?",
+        "Why Buffalo? It's cold there.",
+        "Why not a more well-known city like New York or California?",
+        "What do you know about Buffalo's weather?",
+        "Are you prepared for the cold climate?",
+        "What specific opportunities does Buffalo offer for your field?",
+        "How will studying in Buffalo benefit your career more than studying elsewhere?"
+      ]
+    },
+    "career": {
+      "title": "Career Goals & OPT",
+      "questions": [
+        "What are your short-term and long-term career goals?",
+        "Do you plan to work in the US after graduation?",
+        "What is OPT? Tell me about it.",
+        "Do you plan to apply for OPT?",
+        "Will you return to India after your studies?",
+        "What job do you want after graduation?",
+        "Do you have any job offers?",
+        "How will your degree help you in your career?",
+        "What companies do you want to work for?",
+        "Why do you need a master's degree for your career?",
+        "Can't you achieve your goals with your current degree?",
+        "What if you don't get a job in the US?",
+        "Are you planning to apply for H1B?",
+        "Do you have plans to immigrate to the US permanently?"
+      ]
+    },
+    "academics": {
+      "title": "Academics",
+      "questions": [
+        "What did you study in your bachelor's?",
+        "Why did you choose this major?",
+        "What was your GPA/percentage?",
+        "Tell me about your academic background.",
+        "What subjects did you like most?",
+        "What research have you done?",
+        "Tell me about your final year project.",
+        "Why do you want to pursue a master's degree?",
+        "What courses will you take?",
+        "Who are the professors you want to work with?",
+        "What is your thesis/research topic?",
+        "How is this program different from your bachelor's?"
+      ]
+    },
+    "financial": {
+      "title": "Financial Questions",
+      "questions": [
+        "How will you finance your education?",
+        "Who is your sponsor?",
+        "What does your father do?",
+        "What does your mother do?",
+        "What is your family's annual income?",
+        "Do you have any loans?",
+        "How much does your program cost?",
+        "Can you show me your financial documents?",
+        "Do you have any scholarships?",
+        "Why didn't you get a scholarship?",
+        "How much money do you have in your bank?",
+        "Can you afford the full cost of attendance?",
+        "What if your funds run out?",
+        "Who will support you financially?",
+        "Do you have siblings? Are they studying?"
+      ]
+    },
+    "personal": {
+      "title": "Personal Background",
+      "questions": [
+        "Tell me about your family.",
+        "Where are you from?",
+        "What does your city/hometown do?",
+        "Are you married?",
+        "Do you have a girlfriend/boyfriend?",
+        "What do you do in your free time?",
+        "What are your hobbies?",
+        "Have you traveled abroad before?",
+        "Where have you traveled?",
+        "Do you have relatives in the US?",
+        "What languages do you speak?",
+        "Why are you going alone? (if applicable)"
+      ]
+    },
+    "ties": {
+      "title": "Ties to India",
+      "questions": [
+        "Why will you come back to India?",
+        "What ties do you have to India?",
+        "Do you have property in India?",
+        "What will you do when you return?",
+        "Do you have a job offer in India?",
+        "Why wouldn't you stay in the US?",
+        "Your family is in India, what about that?",
+        "What opportunities does India offer you?",
+        "How will you contribute to India after your education?",
+        "Do you plan to settle in the US?"
+      ]
+    },
+    "work": {
+      "title": "Work Experience",
+      "questions": [
+        "Do you have any work experience?",
+        "Tell me about your job/internship.",
+        "What did you learn from your work?",
+        "Why do you want to study if you have work experience?",
+        "Why did you leave your job?",
+        "What was your role?",
+        "How will this program help you advance in your career?",
+        "What projects did you work on?",
+        "Who was your employer?",
+        "How long did you work there?"
+      ]
+    },
+    "challenging": {
+      "title": "Challenging Questions",
+      "questions": [
+        "You've been rejected before. Why should we approve you now?",
+        "Your English seems weak. How will you manage?",
+        "Your grades are low. How will you succeed?",
+        "This is an expensive program. Is it worth it?",
+        "Why do you think you deserve this visa?",
+        "What if you don't get a job after graduation?",
+        "How do I know you won't overstay your visa?",
+        "Why should I believe you'll return to India?",
+        "You're going to a lesser-known university. Why?",
+        "What makes you different from other applicants?",
+        "Why did you take a gap year?",
+        "What did you do during your gap year?",
+        "Why the gap between your studies?"
+      ]
+    },
+    "program": {
+      "title": "Program Specifics",
+      "questions": [
+        "How long is your program?",
+        "When does your program start?",
+        "What is the duration of your course?",
+        "Is this a STEM program?",
+        "What is STEM OPT?",
+        "Tell me about your curriculum.",
+        "What specialization will you choose?",
+        "Will you do a thesis or non-thesis track?",
+        "What kind of research opportunities are available?",
+        "Do you have any teaching assistantship?",
+        "What facilities does your university have for your program?"
+      ]
+    },
+    "followup": {
+      "title": "Common Follow-ups",
+      "questions": [
+        "Can you elaborate on that?",
+        "Why do you say that?",
+        "How does that relate to your goals?",
+        "Can you give me an example?",
+        "What do you mean by that?",
+        "How will you handle that?",
+        "Are you sure about that?",
+        "What if that doesn't work out?",
+        "Can you be more specific?",
+        "How do you plan to achieve that?",
+        "What's your backup plan?",
+        "Have you thought about the challenges?",
+        "How will you overcome those obstacles?",
+        "What research have you done on this?",
+        "Can you prove that?"
+      ]
+    },
+    "situational": {
+      "title": "Situational Questions",
+      "questions": [
+        "What will you do if you get homesick?",
+        "How will you adapt to American culture?",
+        "What if your roommate has different habits?",
+        "How will you manage your time?",
+        "What if you face discrimination?",
+        "How will you handle academic pressure?",
+        "What if you fail a course?",
+        "How will you manage your finances?",
+        "What if you get sick?",
+        "How will you make friends?",
+        "What if your visa is rejected?",
+        "How do you handle stress?",
+        "What will you do during holidays?",
+        "How will you stay connected with family?",
+        "What if you don't like your program?",
+        "How will you deal with culture shock?",
+        "What if you don't get along with your advisor?",
+        "How will you balance studies and personal life?"
+      ]
+    }
+  }
+}
