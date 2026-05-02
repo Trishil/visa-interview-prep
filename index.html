@@ -209,6 +209,8 @@ ul.tp-list li::before { content: '•'; color: var(--color-primary); font-weight
       <div style="display:flex; gap:16px; margin-top:32px;">
         <button class="btn" onclick="nav(event, 'documents')">Go to Documents</button>
         <button class="btn btn-outline" onclick="window.print()">Export / Print Plan</button>
+              <button class="btn btn-outline" onclick="document.getElementById('mdFileInput').click()">📄 Upload Questions (.md)</button>
+      <input type="file" id="mdFileInput" accept=".md" style="display:none" onchange="parseMarkdownFile(event)">
       </div>
     </section>
 
@@ -1005,6 +1007,110 @@ ul.tp-list li::before { content: '•'; color: var(--color-primary); font-weight
 
 <script>
 // NAVIGATION
+
+  // MARKDOWN FILE PARSER
+function parseMarkdownFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const content = e.target.result;
+    const questions = extractQuestionsFromMarkdown(content);
+    
+    if (questions.length > 0) {
+      displayUploadedQuestions(questions);
+      alert(`✅ Successfully loaded ${questions.length} questions from ${file.name}`);
+    } else {
+      alert('❌ No questions found. Please check your markdown format.');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function extractQuestionsFromMarkdown(content) {
+  const questions = [];
+  let currentCategory = 'Uploaded Questions';
+  
+  // Split by lines
+  const lines = content.split('\n');
+  let currentQ = null;
+  let currentAnswer = '';
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    
+    // Category detection: ## Category: Name
+    if (line.match(/^##\s*Category:/i)) {
+      currentCategory = line.replace(/^##\s*Category:\s*/i, '').trim();
+      continue;
+    }
+    
+    // Question detection: ### Q or **Q: or Q:
+    if (line.match(/^###\s*Q\d*:|^\*\*Q\d*:|^Q\d*:/i)) {
+      // Save previous question if exists
+      if (currentQ) {
+        questions.push({category: currentCategory, question: currentQ, answer: currentAnswer.trim()});
+      }
+      currentQ = line.replace(/^###\s*|^\*\*|^Q\d*:\s*/gi, '').trim();
+      currentAnswer = '';
+      continue;
+    }
+    
+    // Answer detection: **Answer: or A: or Answer:
+    if (line.match(/^\*\*Answer:|^A:|^Answer:/i)) {
+      currentAnswer = line.replace(/^\*\*Answer:|^A:|^Answer:/i, '').trim();
+      continue;
+    }
+    
+    // Continue answer if we're in answer mode
+    if (currentQ && line.length > 0 && !line.startsWith('#')) {
+      currentAnswer += ' ' + line;
+    }
+  }
+  
+  // Save last question
+  if (currentQ) {
+    questions.push({category: currentCategory, question: currentQ, answer: currentAnswer.trim()});
+  }
+  
+  return questions;
+}
+
+function displayUploadedQuestions(questions) {
+  // Create a new section for uploaded questions
+  const container = document.createElement('div');
+  container.id = 'uploaded-questions';
+  container.className = 'qa-section';
+  container.innerHTML = '<h3 style="color:var(--color-success); margin-bottom:1rem;">📤 Uploaded Questions (' + questions.length + ')</h3>';
+  
+  questions.forEach((q, index) => {
+    const qaCard = document.createElement('div');
+    qaCard.className = 'qa-card';
+    qaCard.id = 'qa-upload-' + index;
+    qaCard.innerHTML = `
+      <div class="qa-header" onclick="toggleQA('qa-upload-${index}')">
+        <div class="qa-num">${index + 1}</div>
+        <div class="qa-text">${q.question}</div>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-label">Your Answer</div>
+        <textarea class="qa-textarea" placeholder="Write your answer here...">${q.answer}</textarea>
+      </div>
+    `;
+    container.appendChild(qaCard);
+  });
+  
+  // Add to the first available section (or dashboard)
+  const dashboardSection = document.getElementById('dashboard');
+  if (dashboardSection) {
+    dashboardSection.appendChild(container);
+  }
+  
+  // Save to localStorage
+  localStorage.setItem('uploadedQuestions', JSON.stringify(questions));
+}
+
 function nav(event, targetId) {
   if(event) {
     document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
